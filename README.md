@@ -1,0 +1,2 @@
+# AutomationGuiderVehicleControl_KORE_SEMI
+芯核心使用專案
