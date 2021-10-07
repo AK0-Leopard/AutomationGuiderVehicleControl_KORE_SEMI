@@ -1,0 +1,2532 @@
+
+CREATE TABLE [dbo].[AADDRESS](
+	[ADR_ID] [char](5) NOT NULL,
+	[ADRTYPE] [int] NOT NULL,
+	[SEC_ID] [char](5) NULL,
+	[DISTANCE] [int] NULL,
+	[P_LOCATION] [char](10) NOT NULL,
+	[IS_DISPLAY] [int] NOT NULL,
+	[ZOOM_LV] [int] NOT NULL,
+	[PORT1_ID] [char](10) NULL,
+	[P1_LD_VH_TYPE] [int] NOT NULL,
+	[P1_ULD_VH_TYPE] [int] NOT NULL,
+	[PORT2_ID] [char](10) NULL,
+	[P2_LD_VH_TYPE] [int] NOT NULL,
+	[P2_ULD_VH_TYPE] [int] NOT NULL,
+	[NODE_ID] [char](5) NULL,
+	[ADR1_DIS] [int] NOT NULL,
+	[ADR2_DIS] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AADDRESS_DATA]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AADDRESS_DATA](
+	[ADR_ID] [char](5) NOT NULL,
+	[VEHOCLE_ID] [char](5) NOT NULL,
+	[RESOLUTION] [int] NOT NULL,
+	[LOACTION] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ABASEDATA_VER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ABASEDATA_VER](
+	[VER_TYPE] [int] NOT NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[REL_STAUS] [int] NULL,
+	[ADD_TIME] [smalldatetime] NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [smalldatetime] NULL,
+	[UPD_USER] [char](10) NULL,
+	[MEMO] [nchar](500) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ABLOCKZONEDETAIL]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ABLOCKZONEDETAIL](
+	[ENTRY_SEC_ID] [nchar](5) NOT NULL,
+	[SEC_ID] [nchar](5) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ABLOCKZONEMASTER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ABLOCKZONEMASTER](
+	[ENTRY_SEC_ID] [char](5) NOT NULL,
+	[BLOCK_ZONE_TYPE] [int] NOT NULL,
+	[LEAVE_ADR_ID_1] [char](5) NOT NULL,
+	[LEAVE_ADR_ID_2] [char](5) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ABUFFER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ABUFFER](
+	[BUFF_ID] [char](15) NOT NULL,
+	[UNIT_NUM] [int] NOT NULL,
+	[EQPT_ID] [char](15) NOT NULL,
+	[CAPACITY] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACARRIER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACARRIER](
+	[ID] [char](64) NOT NULL,
+	[INSER_TIME] [datetime2](7) NOT NULL,
+	[LOCATION] [char](64) NULL,
+	[RENAME_ID] [char](64) NULL,
+	[STATE] [int] NOT NULL,
+	[LOT_ID] [char](64) NULL,
+	[TYPE] [char](2) NULL,
+	[READ_STATUS] [int] NULL,
+	[INSTALLED_TIME] [datetime2](7) NULL,
+	[FINISH_TIME] [datetime2](7) NULL,
+	[HOSTSOURCE] [char](64) NULL,
+	[HOSTDESTINATION] [char](64) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACASSETTE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACASSETTE](
+	[CST_ID] [char](20) NOT NULL,
+	[CST_STAT] [int] NOT NULL,
+	[SHT_CNT] [int] NOT NULL,
+	[PORT_ID] [char](15) NOT NULL,
+	[CST_CODE] [char](1) NOT NULL,
+	[LOT_ID] [char](20) NULL,
+	[SLOT_MAP] [char](20) NOT NULL,
+	[SLOT_SEL] [char](20) NULL,
+	[END_STAT] [char](1) NOT NULL,
+	[CRATE_ID] [char](20) NULL,
+	[CSTLOGON_TIME] [datetime2](7) NULL,
+	[CSTLOGOff_TIME] [datetime2](7) NULL,
+	[ISLOTSTART] [char](1) NOT NULL,
+	[CSTPROCSTART_TIME] [datetime2](7) NULL,
+	[CSTPROCEND_TIME] [datetime2](7) NULL,
+	[ROUNTINMODE] [char](1) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACEID]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACEID](
+	[CEID] [char](3) NOT NULL,
+	[RPTID] [char](3) NOT NULL,
+	[ORDER_NUM] [int] NOT NULL,
+	[NAME] [char](20) NULL,
+	[UPD_TIME] [datetime2](7) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACMD]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACMD](
+	[ID] [char](64) NOT NULL,
+	[VH_ID] [char](5) NOT NULL,
+	[CARRIER_ID] [char](64) NULL,
+	[TRANSFER_ID] [char](64) NULL,
+	[CMD_TYPE] [int] NOT NULL,
+	[SOURCE] [char](64) NULL,
+	[DESTINATION] [char](64) NULL,
+	[PRIORITY] [int] NOT NULL,
+	[CMD_INSER_TIME] [datetime2](7) NOT NULL,
+	[CMD_START_TIME] [datetime2](7) NULL,
+	[CMD_END_TIME] [datetime2](7) NULL,
+	[CMD_STATUS] [int] NOT NULL,
+	[CMD_PROGRESS] [int] NOT NULL,
+	[INTERRUPTED_REASON] [int] NULL,
+	[ESTIMATED_TIME] [int] NOT NULL,
+	[ESTIMATED_EXCESS_TIME] [int] NOT NULL,
+	[SOURCE_PORT] [char](64) NULL,
+	[DESTINATION_PORT] [char](64) NULL,
+	[COMPLETE_STATUS] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACMD_DETAIL]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACMD_DETAIL](
+	[CMD_ID] [char](64) NOT NULL,
+	[SEQ_NO] [int] NOT NULL,
+	[ADD_ID] [char](5) NOT NULL,
+	[ADD_ENTRY_TIME] [datetime2](7) NULL,
+	[SEC_ID] [char](10) NOT NULL,
+	[SEG_NUM] [char](10) NOT NULL,
+	[SEC_ENTRY_TIME] [datetime2](7) NULL,
+	[SEC_LEAVE_TIME] [datetime2](7) NULL,
+	[LOAD_START_TIME] [datetime2](7) NULL,
+	[LOAD_END_TIME] [datetime2](7) NULL,
+	[UNLOAD_START_TIME] [datetime2](7) NULL,
+	[UNLOAD_END_TIME] [datetime2](7) NULL,
+	[ESTIMATED_TIME] [int] NOT NULL,
+	[IS_PASS] [bit] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACRATE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACRATE](
+	[CRATE_ID] [char](20) NOT NULL,
+	[MAKER] [char](20) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACYCLEZONEDETAIL]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACYCLEZONEDETAIL](
+	[CYCLE_ZONE_ID] [char](10) NOT NULL,
+	[SEC_ID] [char](10) NOT NULL,
+	[SEC_ORDER] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACYCLEZONEMASTER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACYCLEZONEMASTER](
+	[CYCLE_TYPE_ID] [char](10) NOT NULL,
+	[CYCLE_ZONE_ID] [char](10) NOT NULL,
+	[ENTRY_ADR_ID] [char](5) NOT NULL,
+	[TOTAL_BORDER] [int] NOT NULL,
+	[VEHICLE_TYPE] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ACYCLEZONETYPE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ACYCLEZONETYPE](
+	[CYCLE_TYPE_ID] [char](10) NOT NULL,
+	[PROD_ID] [char](10) NULL,
+	[TOTAL_BORDER] [int] NOT NULL,
+	[IS_DEFAULT] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AECDATAMAP]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AECDATAMAP](
+	[ECID] [char](4) NOT NULL,
+	[EQPT_REAL_ID] [char](15) NULL,
+	[ECNAME] [char](40) NULL,
+	[ECMIN] [char](10) NULL,
+	[ECMAX] [char](10) NULL,
+	[ECV] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AEQPT]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AEQPT](
+	[EQPT_ID] [char](15) NOT NULL,
+	[NODE_ID] [char](15) NOT NULL,
+	[CIM_MODE] [char](1) NOT NULL,
+	[OPER_MODE] [char](1) NOT NULL,
+	[INLINE_MODE] [char](1) NOT NULL,
+	[EQPT_STAT] [char](1) NOT NULL,
+	[EQPT_PROC_STAT] [char](1) NOT NULL,
+	[CR_RECIPE] [char](33) NULL,
+	[MAX_SHT_CNT] [int] NULL,
+	[MIN_SHT_CNT] [int] NULL,
+	[ALARM_STAT] [char](1) NULL,
+	[WARN_STAT] [char](1) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AEVENTRPTCOND]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AEVENTRPTCOND](
+	[CEID] [char](3) NOT NULL,
+	[ENABLE_FLG] [char](1) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AFLOW_REL]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AFLOW_REL](
+	[UPSTREAM_ID] [char](10) NOT NULL,
+	[DOWNSTREAM_ID] [char](10) NOT NULL,
+	[FR_ID] [char](10) NOT NULL,
+	[REL_TYPE] [char](1) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AGROUPPORTSTATION]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AGROUPPORTSTATION](
+	[GROUP_ID] [char](20) NOT NULL,
+	[TYPE] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AGROUPRAILS]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AGROUPRAILS](
+	[SECTION_ID] [char](5) NOT NULL,
+	[RAIL_ID] [char](5) NOT NULL,
+	[RAIL_NO] [int] NULL,
+	[DIR] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AHIDZONEDETAIL]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AHIDZONEDETAIL](
+	[ENTRY_SEC_ID] [char](5) NOT NULL,
+	[SEC_ID] [char](5) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AHIDZONEMASTER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AHIDZONEMASTER](
+	[ENTRY_SEC_ID] [char](5) NOT NULL,
+	[LEAVE_ADR_ID_1] [char](5) NOT NULL,
+	[LEAVE_ADR_ID_2] [char](5) NULL,
+	[MAX_LOAD_COUNT] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AHIDZONEQUEUE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AHIDZONEQUEUE](
+	[ENTRY_SEC_ID] [char](5) NOT NULL,
+	[VEHICLE_ID] [char](10) NOT NULL,
+	[REQ_TIME] [smalldatetime] NOT NULL,
+	[BLOCK_TIME] [smalldatetime] NULL,
+	[THROU_TIME] [smalldatetime] NULL,
+	[RELEASE_TIME] [smalldatetime] NULL,
+	[STATUS] [int] NOT NULL,
+	[IS_PASUE] [bit] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ALARM]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ALARM](
+	[EQPT_ID] [char](15) NOT NULL,
+	[RPT_DATE_TIME] [datetime2](7) NOT NULL,
+	[ALAM_CODE] [char](10) NOT NULL,
+	[ALAM_LVL] [int] NOT NULL,
+	[ALAM_STAT] [int] NOT NULL,
+	[ALAM_DESC] [char](80) NULL,
+	[CLEAR_DATE_TIME] [datetime2](7) NULL,
+	[CMD_ID_1] [char](64) NULL,
+	[CMD_ID_2] [char](64) NULL,
+	[CMD_ID_3] [char](64) NULL,
+	[CMD_ID_4] [char](64) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ALARMRPTCOND]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ALARMRPTCOND](
+	[EQPT_ID] [char](15) NOT NULL,
+	[ALAM_CODE] [char](10) NOT NULL,
+	[ENABLE_FLG] [char](1) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ALINE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ALINE](
+	[LINE_ID] [char](15) NOT NULL,
+	[HOST_MODE] [int] NOT NULL,
+	[LINE_STAT] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ALOT]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ALOT](
+	[LOT_ID] [char](20) NOT NULL,
+	[SHT_TYP] [char](1) NULL,
+	[CST_OPER_MODE] [char](1) NOT NULL,
+	[DUMMY_TYPE] [char](1) NOT NULL,
+	[LOT_JUDGE] [char](1) NULL,
+	[WORK_ORDER] [char](30) NULL,
+	[PROC_STAT] [char](1) NULL,
+	[LOT_START_PROC_TIME] [char](16) NULL,
+	[LOT_END_PROC_TIME] [char](16) NULL,
+	[PROC_SHT_CNT] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AMAIN_VER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AMAIN_VER](
+	[VER_YEAR] [char](4) NULL,
+	[VER_MON] [char](2) NULL,
+	[VER_DAY] [char](2) NULL,
+	[VER_HOUR] [char](2) NULL,
+	[VER_MIN] [char](2) NULL,
+	[MAIN_VER] [char](4) NOT NULL,
+	[VER_STAUS] [int] NULL,
+	[REL_STAUS] [int] NULL,
+	[MEMO] [nchar](500) NULL,
+	[ADD_TIME] [datetime2](7) NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [datetime2](7) NULL,
+	[UPD_USER] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AMCSREPORTQUEUE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AMCSREPORTQUEUE](
+	[ID] [uniqueidentifier] NOT NULL,
+	[SERIALIZED_SXFY] [varbinary](max) NOT NULL,
+	[INTER_TIME] [datetime2](7) NOT NULL,
+	[REPORT_TIME] [datetime2](7) NULL,
+	[STREAMFUNCTION_NAME] [varchar](50) NOT NULL,
+	[STREAMFUNCTION_CEID] [char](5) NULL,
+	[MCS_CMD_ID] [char](64) NULL,
+	[VEHICLE_ID] [char](5) NULL,
+	[PORT_ID] [char](64) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ANETWORKQUALITY]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ANETWORKQUALITY](
+	[VEHICLE_ID] [char](5) NOT NULL,
+	[ADR_ID] [char](5) NOT NULL,
+	[SEC_ID] [char](5) NOT NULL,
+	[ACC_SEC_DIST] [int] NOT NULL,
+	[UPD_TIME] [smalldatetime] NOT NULL,
+	[PING_TIME] [bigint] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ANODE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ANODE](
+	[NODE_ID] [char](15) NOT NULL,
+	[ZONE_ID] [char](15) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APARKZONEDETAIL]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APARKZONEDETAIL](
+	[PARK_ZONE_ID] [char](10) NOT NULL,
+	[ADR_ID] [char](5) NOT NULL,
+	[PRIO] [int] NOT NULL,
+	[CAR_ID] [char](5) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APARKZONEMASTER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APARKZONEMASTER](
+	[PARK_TYPE_ID] [char](10) NOT NULL,
+	[PARK_ZONE_ID] [char](10) NOT NULL,
+	[VEHICLE_TYPE] [int] NOT NULL,
+	[ENTRY_ADR_ID] [char](5) NOT NULL,
+	[TOTAL_BORDER] [int] NOT NULL,
+	[LOWER_BORDER] [int] NOT NULL,
+	[PARK_TYPE] [int] NOT NULL,
+	[IS_ACTIVE] [bit] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APARKZONETYPE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APARKZONETYPE](
+	[PARK_TYPE_ID] [char](10) NOT NULL,
+	[PROD_ID] [char](10) NULL,
+	[TOTAL_BORDER] [int] NOT NULL,
+	[IS_DEFAULT] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APOINT]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APOINT](
+	[POINT_ID] [char](5) NOT NULL,
+	[ADR_ID] [char](5) NULL,
+	[RAIL_ID] [char](5) NULL,
+	[POINTTYPE] [int] NOT NULL,
+	[LOCATIONX] [int] NOT NULL,
+	[LOCATIONY] [int] NOT NULL,
+	[HEIGHT] [float] NOT NULL,
+	[WIDTH] [float] NOT NULL,
+	[COLOR] [char](10) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APORT]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APORT](
+	[PORT_ID] [char](15) NOT NULL,
+	[UNIT_NUM] [int] NOT NULL,
+	[PORT_NUM] [int] NOT NULL,
+	[EQPT_ID] [char](15) NOT NULL,
+	[PORT_TYPE] [char](1) NOT NULL,
+	[PORT_USE_TYPE] [char](2) NULL,
+	[PORT_REAL_TYPE] [char](2) NULL,
+	[CAPACITY] [int] NOT NULL,
+	[PORT_STAT] [char](1) NOT NULL,
+	[PORT_ENABLE] [char](1) NOT NULL,
+	[TRS_MODE] [char](1) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APORT_POSITION_TEACHING_DATA]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APORT_POSITION_TEACHING_DATA](
+	[PORT_ID] [char](10) NOT NULL,
+	[VH_ID] [char](10) NOT NULL,
+	[POSITION_OFFSET] [int] NOT NULL,
+	[RESOLUTION] [int] NOT NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[ADD_TIME] [datetime2](7) NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [datetime2](7) NULL,
+	[UPD_USER] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APORTICON]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APORTICON](
+	[PORT_ID] [char](10) NOT NULL,
+	[ADR_ID] [char](5) NOT NULL,
+	[RAIL_ID] [char](5) NOT NULL,
+	[ADRTYPE] [int] NOT NULL,
+	[LOCATIONX] [int] NOT NULL,
+	[LOCATIONY] [int] NOT NULL,
+	[HEIGHT] [int] NOT NULL,
+	[WIDTH] [int] NOT NULL,
+	[COLOR] [char](10) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[APORTSTATION]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[APORTSTATION](
+	[PORT_ID] [char](64) NOT NULL,
+	[ADR_ID] [char](5) NULL,
+	[LD_VH_TYPE] [int] NOT NULL,
+	[ULD_VH_TYPE] [int] NOT NULL,
+	[PRIORITY] [int] NOT NULL,
+	[PORT_TYPE] [int] NOT NULL,
+	[PORT_STATUS] [int] NOT NULL,
+	[PORT_DIR] [int] NOT NULL,
+	[PORT_SERVICE_STATUS] [int] NOT NULL,
+	[GROUP_ID] [char](20) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ARAIL]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ARAIL](
+	[RAIL_ID] [char](5) NOT NULL,
+	[RAILTYPE] [int] NOT NULL,
+	[LOCATIONX] [int] NOT NULL,
+	[LOCATIONY] [int] NOT NULL,
+	[WIDTH] [float] NOT NULL,
+	[LENGTH] [float] NOT NULL,
+	[COLOR] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ARPTID]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ARPTID](
+	[RPTID] [char](3) NOT NULL,
+	[VID] [char](3) NOT NULL,
+	[ORDER_NUM] [int] NOT NULL,
+	[NAME] [char](20) NULL,
+	[UPD_TIME] [smalldatetime] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ASECTION]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ASECTION](
+	[SEC_ID] [char](5) NOT NULL,
+	[SEG_ORDER_NUM] [int] NOT NULL,
+	[SEG_NUM] [char](3) NULL,
+	[FROM_ADR_ID] [char](5) NOT NULL,
+	[TO_ADR_ID] [char](5) NOT NULL,
+	[SEC_DIS] [float] NOT NULL,
+	[SEC_SPD] [float] NULL,
+	[SEC_TYPE] [int] NOT NULL,
+	[SEC_DIR] [int] NOT NULL,
+	[LAST_TECH_TIME] [datetime2](7) NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[ADD_TIME] [datetime2](7) NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [datetime2](7) NULL,
+	[UPD_USER] [char](10) NULL,
+	[ADR1_CHG_SEC_ID_1] [char](5) NULL,
+	[ADR1_CHG_SEC_COST_1] [int] NOT NULL,
+	[ADR1_CHG_SEC_ID_2] [char](5) NULL,
+	[ADR1_CHG_SEC_COST_2] [int] NOT NULL,
+	[ADR1_CHG_SEC_ID_3] [char](5) NULL,
+	[ADR1_CHG_SEC_COST_3] [int] NOT NULL,
+	[ADR2_CHG_SEC_ID_1] [char](5) NULL,
+	[ADR2_CHG_SEC_COST_1] [int] NOT NULL,
+	[ADR2_CHG_SEC_ID_2] [char](5) NULL,
+	[ADR2_CHG_SEC_COST_2] [int] NOT NULL,
+	[ADR2_CHG_SEC_ID_3] [char](5) NULL,
+	[ADR2_CHG_SEC_COST_3] [int] NOT NULL,
+	[SEC_COST_From2To] [int] NOT NULL,
+	[SEC_COST_To2From] [int] NOT NULL,
+	[ISBANEND_From2To] [bit] NOT NULL,
+	[ISBANEND_To2From] [bit] NOT NULL,
+	[STATUS] [int] NOT NULL,
+	[NOTE] [nchar](40) NULL,
+	[PRE_DISABLE_FLAG] [bit] NOT NULL,
+	[PRE_DISABLE_TIME] [datetime] NULL,
+	[DISABLE_TIME] [datetime] NULL,
+	[DISABLE_FLAG_USER] [bit] NOT NULL,
+	[DISABLE_FLAG_SAFETY] [bit] NOT NULL,
+	[DISABLE_FLAG_CHARGE] [bit] NOT NULL,
+	[DISABLE_FLAG_SYSTEM] [bit] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ASECTION_CONTROL_100]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ASECTION_CONTROL_100](
+	[SEC_ID] [char](5) NOT NULL,
+	[CHG_AREA_SECSOR_1] [int] NOT NULL,
+	[CHG_AREA_SECSOR_2] [int] NOT NULL,
+	[OBS_SENSOR_F] [int] NOT NULL,
+	[OBS_SENSOR_R] [int] NOT NULL,
+	[OBS_SENSOR_L] [int] NOT NULL,
+	[RANGE_SENSOR_F] [int] NOT NULL,
+	[IS_ADR_RPT] [bit] NOT NULL,
+	[CAN_GUIDE_CHG] [bit] NOT NULL,
+	[HID_CONTROL] [bit] NOT NULL,
+	[BRANCH_FLAG] [bit] NOT NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[ADD_TIME] [datetime2](7) NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [datetime2](7) NULL,
+	[UPD_USER] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ASEGMENT]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ASEGMENT](
+	[SEG_ID] [char](10) NOT NULL,
+	[FROM_ADR_ID] [char](5) NOT NULL,
+	[TO_ADR_ID] [char](5) NOT NULL,
+	[STATUS] [int] NOT NULL,
+	[SEG_TYPE] [int] NOT NULL,
+	[SEG_RAIL_TYPE] [int] NOT NULL,
+	[SPECIAL_MARK] [int] NULL,
+	[RESERVE_FIELD] [char](40) NULL,
+	[NOTE] [nchar](40) NULL,
+	[DIR] [int] NOT NULL,
+	[PRE_DISABLE_FLAG] [bit] NOT NULL,
+	[PRE_DISABLE_TIME] [datetime2](7) NULL,
+	[DISABLE_TIME] [datetime2](7) NULL,
+	[ADR1_CHG_SEG_ID_1] [char](5) NULL,
+	[ADR1_CHG_SEG_COST_1] [int] NOT NULL,
+	[ADR1_CHG_SEG_ID_2] [char](5) NULL,
+	[ADR1_CHG_SEG_COST_2] [int] NOT NULL,
+	[ADR1_CHG_SEG_ID_3] [char](5) NULL,
+	[ADR1_CHG_SEG_COST_3] [int] NOT NULL,
+	[ADR2_CHG_SEG_ID_1] [char](5) NULL,
+	[ADR2_CHG_SEG_COST_1] [int] NOT NULL,
+	[ADR2_CHG_SEG_ID_2] [char](5) NULL,
+	[ADR2_CHG_SEG_COST_2] [int] NOT NULL,
+	[ADR2_CHG_SEG_ID_3] [char](5) NULL,
+	[ADR2_CHG_SEG_COST_3] [int] NOT NULL,
+	[SEC_COST_From2To] [int] NOT NULL,
+	[SEC_COST_To2From] [int] NOT NULL,
+	[ISBANEND_From2To] [bit] NOT NULL,
+	[ISBANEND_To2From] [bit] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ASEQUENCE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ASEQUENCE](
+	[SEQ_NAME] [char](15) NOT NULL,
+	[NXT_VAL] [bigint] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ASHEET]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ASHEET](
+	[SHT_ID] [char](20) NOT NULL,
+	[JOB_NO] [char](5) NOT NULL,
+	[LOT_ID] [char](20) NOT NULL,
+	[PROD_ID] [char](20) NULL,
+	[SHT_STAT] [char](1) NULL,
+	[SOURCE_CST_ID] [char](20) NULL,
+	[SOURCE_SLOT_NO] [int] NOT NULL,
+	[SOURCE_PORT_NO] [int] NOT NULL,
+	[TARGET_CST_ID] [char](20) NULL,
+	[TARGET_SLOT_NO] [int] NOT NULL,
+	[TARGET_PORT_NO] [int] NOT NULL,
+	[PROC_FLAG] [char](8) NULL,
+	[SHT_JUDGE] [char](1) NULL,
+	[SHT_GRADE] [char](1) NULL,
+	[PROC_INFO] [char](8) NULL,
+	[PPID] [char](40) NULL,
+	[CRATE_ID] [char](20) NULL,
+	[TAKE_OUT_STAT] [char](1) NULL,
+	[NODE_ID] [char](15) NULL,
+	[CST_ID] [char](20) NULL,
+	[SLOT_NO] [int] NOT NULL,
+	[TAKE_OUT_TIME] [char](16) NULL,
+	[SCRAP_CODE] [char](5) NULL,
+	[REASON_CODE] [char](5) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ASUB_VER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ASUB_VER](
+	[MAIN_VER] [char](4) NOT NULL,
+	[VER_TYPE] [int] NOT NULL,
+	[SUB_VER] [char](4) NULL,
+	[ADD_TIME] [datetime2](7) NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [datetime2](7) NULL,
+	[UPD_USER] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ASYSEXCUTEQUALITY]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ASYSEXCUTEQUALITY](
+	[CMD_ID_MCS] [char](64) NOT NULL,
+	[CMD_INSERT_TIME] [datetime2](7) NOT NULL,
+	[CMD_START_TIME] [datetime2](7) NULL,
+	[CMD_FINISH_TIME] [datetime2](7) NULL,
+	[CMD_FINISH_STATUS] [int] NULL,
+	[VH_ID] [char](5) NULL,
+	[VH_START_SEC_ID] [char](5) NULL,
+	[SOURCE_ADR] [char](64) NULL,
+	[SEC_CNT_TO_SOURCE] [int] NOT NULL,
+	[SEC_DIS_TO_SOURCE] [int] NOT NULL,
+	[DESTINATION_ADR] [char](64) NULL,
+	[SEC_CNT_TO_DESTN] [int] NOT NULL,
+	[SEC_DIS_TO_DESTN] [int] NOT NULL,
+	[CMDQUEUE_TIME] [float] NOT NULL,
+	[MOVE_TO_SOURCE_TIME] [float] NOT NULL,
+	[TOTAL_BLOCK_TIME_TO_SOURCE] [float] NOT NULL,
+	[TOTAL_OCS_TIME_TO_SOURCE] [float] NOT NULL,
+	[TOTAL_BLOCK_COUNT_TO_SOURCE] [int] NOT NULL,
+	[TOTAL_OCS_COUNT_TO_SOURCE] [int] NOT NULL,
+	[MOVE_TO_DESTN_TIME] [float] NOT NULL,
+	[TOTAL_BLOCK_TIME_TO_DESTN] [float] NOT NULL,
+	[TOTAL_OCS_TIME_TO_DESTN] [float] NOT NULL,
+	[TOTAL_BLOCK_COUNT_TO_DESTN] [int] NOT NULL,
+	[TOTAL_OCS_COUNT_TO_DESTN] [int] NOT NULL,
+	[TOTALPAUSE_TIME] [float] NOT NULL,
+	[CMD_TOTAL_EXCUTION_TIME] [float] NOT NULL,
+	[TOTAL_ACT_VH_COUNT] [int] NOT NULL,
+	[PARKING_VH_COUNT] [int] NOT NULL,
+	[CYCLERUN_VH_COUNT] [int] NOT NULL,
+	[TOTAL_IDLE_VH_COUNT] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ATRACEITEM]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ATRACEITEM](
+	[TRACE_ID] [char](2) NOT NULL,
+	[SVID] [char](5) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ATRACESET]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ATRACESET](
+	[TRACE_ID] [char](2) NOT NULL,
+	[SMP_PERIOD] [char](6) NULL,
+	[SMP_PERIOD_SEC] [bigint] NOT NULL,
+	[TOTAL_SMP_CNT] [int] NOT NULL,
+	[SMP_CNT] [int] NOT NULL,
+	[NX_SMP_TIME] [smalldatetime] NOT NULL,
+	[SMP_TIME] [smalldatetime] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ATRANSFER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ATRANSFER](
+	[ID] [char](64) NOT NULL,
+	[CARRIER_ID] [char](64) NOT NULL,
+	[LOT_ID] [char](64) NULL,
+	[TRANSFERSTATE] [int] NOT NULL,
+	[COMMANDSTATE] [int] NOT NULL,
+	[HOSTSOURCE] [char](64) NULL,
+	[HOSTDESTINATION] [char](64) NOT NULL,
+	[PRIORITY] [int] NOT NULL,
+	[CHECKCODE] [char](2) NOT NULL,
+	[PAUSEFLAG] [char](1) NOT NULL,
+	[CMD_INSER_TIME] [datetime2](7) NOT NULL,
+	[CMD_START_TIME] [datetime2](7) NULL,
+	[CMD_FINISH_TIME] [datetime2](7) NULL,
+	[TIME_PRIORITY] [int] NOT NULL,
+	[PORT_PRIORITY] [int] NOT NULL,
+	[REPLACE] [int] NOT NULL,
+	[PRIORITY_SUM] [int] NOT NULL,
+	[EXCUTE_CMD_ID] [char](64) NULL,
+	[RESULT_CODE] [char](2) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AUNIT]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AUNIT](
+	[UNIT_ID] [char](15) NOT NULL,
+	[UNIT_NUM] [int] NOT NULL,
+	[EQPT_ID] [char](15) NOT NULL,
+	[UNIT_CATE] [char](1) NOT NULL,
+	[EQPT_TYPE] [char](1) NOT NULL,
+	[CAPACITY] [int] NOT NULL,
+	[UNIT_STAT] [int] NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AVEHICLE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AVEHICLE](
+	[VEHICLE_ID] [char](5) NOT NULL,
+	[VEHICLE_TYPE] [int] NOT NULL,
+	[VEHICLE_ACC_DIST] [int] NOT NULL,
+	[MANT_ACC_DIST] [int] NOT NULL,
+	[MANT_DATE] [datetime2](7) NULL,
+	[GRIP_COUNT] [int] NOT NULL,
+	[GRIP_MANT_COUNT] [int] NOT NULL,
+	[GRIP_MANT_DATE] [datetime2](7) NULL,
+	[LAST_FULLY_CHARGED_TIME] [datetime2](7) NULL,
+	[IS_INSTALLED] [bit] NOT NULL,
+	[INSTALLED_TIME] [datetime2](7) NULL,
+	[REMOVED_TIME] [datetime2](7) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AVEHICLE_CONTROL_100]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AVEHICLE_CONTROL_100](
+	[VEHICLE_ID] [char](5) NOT NULL,
+	[GUIDE_START_STOP_SPEED] [int] NOT NULL,
+	[GUIDE_MAX_SPD] [int] NOT NULL,
+	[GUIDE_ACCEL_DECCEL_TIME] [int] NOT NULL,
+	[GUIDE_S_CURVE_RATE] [int] NOT NULL,
+	[GUIDE_RUN_SPD] [int] NOT NULL,
+	[GUIDE_MANUAL_HIGH_SPD] [int] NOT NULL,
+	[GUIDE_MANUAL_LOW_SPD] [int] NOT NULL,
+	[GUIDE_LF_LOCK_POSITION] [int] NOT NULL,
+	[GUIDE_LB_LOCK_POSITION] [int] NOT NULL,
+	[GUIDE_RF_LOCK_POSITION] [int] NOT NULL,
+	[GUIDE_RB_LOCK_POSITION] [int] NOT NULL,
+	[GUIDE_CHG_STABLE_TIME] [int] NOT NULL,
+	[TRAVEL_RESOLUTION] [int] NOT NULL,
+	[TRAVEL_START_STOP_SPEED] [int] NOT NULL,
+	[TRAVEL_MAX_SPD] [int] NOT NULL,
+	[TRAVEL_ACCEL_DECCEL_TIME] [int] NOT NULL,
+	[TRAVEL_S_CURVE_RATE] [int] NOT NULL,
+	[TRAVEL_HOME_DIR] [int] NOT NULL,
+	[TRAVEL_HOME_SPD] [int] NOT NULL,
+	[TRAVEL_KEEP_DIS_SPD] [int] NOT NULL,
+	[TRAVEL_MANUAL_HIGH_SPD] [int] NOT NULL,
+	[TRAVEL_MANUAL_LOW_SPD] [int] NOT NULL,
+	[TRAVEL_TEACHING_SPD] [int] NOT NULL,
+	[TRAVEL_TRAVEL_DIR] [int] NOT NULL,
+	[TRAVEL_ENCODER_POLARITY] [int] NOT NULL,
+	[TRAVEL_F_DIR_LIMIT] [int] NOT NULL,
+	[TRAVEL_R_DIR_LIMIT] [int] NOT NULL,
+	[TRAVEL_OBS_DETECT_LONG] [int] NOT NULL,
+	[TRAVEL_OBS_DETECT_SHORT] [int] NOT NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[ADD_TIME] [datetime2](7) NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [datetime2](7) NULL,
+	[UPD_USER] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[AZONE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[AZONE](
+	[ZONE_ID] [char](15) NOT NULL,
+	[LINE_ID] [char](15) NULL,
+	[LOT_ID] [char](20) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BCSTAT]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BCSTAT](
+	[BC_ID] [char](10) NOT NULL,
+	[CLOSE_MODE] [char](1) NOT NULL,
+	[RUN_TIMESTAMP] [char](16) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BLOCKZONEQUEUE]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BLOCKZONEQUEUE](
+	[ENTRY_SEC_ID] [nchar](5) NOT NULL,
+	[CAR_ID] [nchar](10) NOT NULL,
+	[REQ_TIME] [datetime2](7) NOT NULL,
+	[BLOCK_TIME] [datetime2](7) NULL,
+	[THROU_TIME] [datetime2](7) NULL,
+	[RELEASE_TIME] [datetime2](7) NULL,
+	[STATUS] [char](1) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CONTROL_DATA]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CONTROL_DATA](
+	[T1] [int] NOT NULL,
+	[T2] [int] NOT NULL,
+	[T3] [int] NOT NULL,
+	[T4] [int] NOT NULL,
+	[T5] [int] NOT NULL,
+	[T6] [int] NOT NULL,
+	[T7] [int] NOT NULL,
+	[T8] [int] NOT NULL,
+	[BLOCK_REQ_TIME_OUT] [int] NOT NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[ADD_TIME] [smalldatetime] NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [smalldatetime] NULL,
+	[UPD_USER] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HASHEET]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HASHEET](
+	[SEQ_NO] [nvarchar](255) NOT NULL,
+	[T_STAMP] [char](19) NULL,
+	[SHT_ID] [char](20) NULL,
+	[JOB_NO] [char](5) NOT NULL,
+	[LOT_ID] [char](20) NOT NULL,
+	[PROD_ID] [char](20) NULL,
+	[SHT_STAT] [char](1) NULL,
+	[SOURCE_CST_ID] [char](20) NULL,
+	[SOURCE_SLOT_NO] [int] NOT NULL,
+	[SOURCE_PORT_NO] [int] NOT NULL,
+	[TARGET_CST_ID] [char](20) NULL,
+	[TARGET_SLOT_NO] [int] NOT NULL,
+	[TARGET_PORT_NO] [int] NOT NULL,
+	[PROC_FLAG] [char](8) NULL,
+	[SHT_JUDGE] [char](1) NULL,
+	[SHT_GRADE] [char](1) NULL,
+	[PROC_INFO] [char](8) NULL,
+	[PPID] [char](40) NULL,
+	[CRATE_ID] [char](20) NULL,
+	[TAKE_OUT_STAT] [char](1) NULL,
+	[NODE_ID] [char](15) NULL,
+	[CST_ID] [char](20) NULL,
+	[SLOT_NO] [int] NOT NULL,
+	[TAKE_OUT_TIME] [char](16) NULL,
+	[SCRAP_CODE] [char](5) NULL,
+	[REASON_CODE] [char](5) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HCMD]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HCMD](
+	[ID] [char](64) NOT NULL,
+	[VH_ID] [char](5) NULL,
+	[CARRIER_ID] [char](64) NULL,
+	[TRANSFER_ID] [char](64) NULL,
+	[CMD_TYPE] [int] NULL,
+	[SOURCE] [char](64) NULL,
+	[DESTINATION] [char](64) NULL,
+	[PRIORITY] [int] NULL,
+	[CMD_INSER_TIME] [datetime2](7) NOT NULL,
+	[CMD_START_TIME] [datetime2](7) NULL,
+	[CMD_END_TIME] [datetime2](7) NULL,
+	[CMD_STATUS] [int] NULL,
+	[CMD_PROGRESS] [int] NULL,
+	[INTERRUPTED_REASON] [int] NULL,
+	[ESTIMATED_TIME] [int] NULL,
+	[ESTIMATED_EXCESS_TIME] [int] NULL,
+	[SOURCE_PORT] [char](64) NULL,
+	[DESTINATION_PORT] [char](64) NULL,
+	[COMPLETE_STATUS] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HOPERATION]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HOPERATION](
+	[SEQ_NO] [nvarchar](255) NOT NULL,
+	[T_STAMP] [char](19) NULL,
+	[USER_ID] [char](20) NULL,
+	[FORM_NAME] [char](30) NULL,
+	[ACTION] [varchar](max) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[HTRANSFER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[HTRANSFER](
+	[ID] [char](64) NOT NULL,
+	[CARRIER_ID] [char](64) NOT NULL,
+	[LOT_ID] [char](64) NULL,
+	[TRANSFERSTATE] [int] NOT NULL,
+	[COMMANDSTATE] [int] NOT NULL,
+	[HOSTSOURCE] [char](64) NULL,
+	[HOSTDESTINATION] [char](64) NOT NULL,
+	[PRIORITY] [int] NOT NULL,
+	[CHECKCODE] [char](2) NOT NULL,
+	[PAUSEFLAG] [char](1) NOT NULL,
+	[CMD_INSER_TIME] [datetime2](7) NOT NULL,
+	[CMD_START_TIME] [datetime2](7) NULL,
+	[CMD_FINISH_TIME] [datetime2](7) NULL,
+	[TIME_PRIORITY] [int] NOT NULL,
+	[PORT_PRIORITY] [int] NOT NULL,
+	[REPLACE] [int] NOT NULL,
+	[PRIORITY_SUM] [int] NOT NULL,
+	[EXCUTE_CMD_ID] [char](64) NULL,
+	[RESULT_CODE] [char](2) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MOVEHIS]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MOVEHIS](
+	[ID] [char](64) NOT NULL,
+	[CARRIER_ID] [char](64) NOT NULL,
+	[LOT_ID] [char](64) NULL,
+	[TRANSFERSTATE] [int] NOT NULL,
+	[COMMANDSTATE] [int] NOT NULL,
+	[HOSTSOURCE] [char](64) NULL,
+	[HOSTDESTINATION] [char](64) NOT NULL,
+	[PRIORITY] [int] NOT NULL,
+	[CHECKCODE] [char](2) NOT NULL,
+	[PAUSEFLAG] [char](1) NOT NULL,
+	[CMD_INSER_TIME] [datetime2](7) NOT NULL,
+	[CMD_START_TIME] [datetime2](7) NULL,
+	[CMD_FINISH_TIME] [datetime2](7) NULL,
+	[TIME_PRIORITY] [int] NOT NULL,
+	[PORT_PRIORITY] [int] NOT NULL,
+	[REPLACE] [int] NOT NULL,
+	[PRIORITY_SUM] [int] NOT NULL,
+	[EXCUTE_CMD_ID] [char](64) NULL,
+	[RESULT_CODE] [char](2) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[SCALE_BASE_DATA]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[SCALE_BASE_DATA](
+	[RESOLUTION] [int] NOT NULL,
+	[INPOSITION_AREA] [int] NOT NULL,
+	[INPOSITION_STABLE_TIME] [int] NOT NULL,
+	[TOTAL_SCALE_PULSE] [int] NOT NULL,
+	[SCALE_OFFSET] [int] NOT NULL,
+	[SCALE_RESE_DIST] [int] NOT NULL,
+	[READ_DIR] [int] NOT NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[ADD_TIME] [smalldatetime] NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [smalldatetime] NULL,
+	[UPD_USER] [char](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UASFNC]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UASFNC](
+	[FUNC_CODE] [char](60) NOT NULL,
+	[FUNC_NAME] [char](80) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UASUFNC]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UASUFNC](
+	[USER_GRP] [char](20) NOT NULL,
+	[FUNC_CODE] [char](60) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UASUSR]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UASUSR](
+	[USER_ID] [char](20) NOT NULL,
+	[PASSWD] [varchar](max) NULL,
+	[BADGE_NUMBER] [char](80) NULL,
+	[USER_NAME] [char](30) NULL,
+	[DISABLE_FLG] [char](1) NULL,
+	[POWER_USER_FLG] [char](1) NULL,
+	[ADMIN_FLG] [char](1) NULL,
+	[USER_GRP] [char](20) NULL,
+	[DEPARTMENT] [char](20) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[UASUSRGRP]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[UASUSRGRP](
+	[USER_GRP] [char](20) NOT NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VSECTION_100]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VSECTION_100](
+	[SEC_ID] [char](5) NOT NULL,
+	[SEC_ORDER_NUM] [int] NULL,
+	[SEG_ORDER_NUM] [int] NOT NULL,
+	[DIRC_DRIV] [int] NOT NULL,
+	[DIRC_GUID] [int] NOT NULL,
+	[SEG_NUM] [char](3) NULL,
+	[FROM_ADR_ID] [char](5) NULL,
+	[TO_ADR_ID] [char](5) NULL,
+	[SEC_DIS] [float] NOT NULL,
+	[SEC_SPD] [float] NULL,
+	[DIS_FROM_ORIGIN] [int] NOT NULL,
+	[CDOG_1] [int] NOT NULL,
+	[CHG_SEG_NUM_1] [char](3) NULL,
+	[CDOG_2] [int] NOT NULL,
+	[CHG_SEG_NUM_2] [char](3) NULL,
+	[PRE_BLO_REQ] [int] NOT NULL,
+	[SEC_TYPE] [int] NOT NULL,
+	[SEC_DIR] [int] NOT NULL,
+	[PADDING] [int] NOT NULL,
+	[ENB_CHG_G_AREA] [int] NOT NULL,
+	[PRE_DIV] [int] NOT NULL,
+	[PRE_ADD_REPR] [int] NOT NULL,
+	[OBS_SENSOR] [int] NOT NULL,
+	[SUB_VER] [char](4) NOT NULL,
+	[ADD_TIME] [smalldatetime] NULL,
+	[ADD_USER] [char](10) NULL,
+	[UPD_TIME] [smalldatetime] NULL,
+	[UPD_USER] [char](10) NULL,
+	[START_BC1] [int] NOT NULL,
+	[END_BC1] [int] NOT NULL,
+	[START_BC2] [int] NOT NULL,
+	[END_BC2] [int] NOT NULL,
+	[START_BC3] [int] NOT NULL,
+	[END_BC3] [int] NOT NULL,
+	[CHG_AREA_SECSOR_1] [int] NOT NULL,
+	[CHG_AREA_SECSOR_2] [int] NOT NULL,
+	[OBS_SENSOR_F] [int] NOT NULL,
+	[OBS_SENSOR_R] [int] NOT NULL,
+	[OBS_SENSOR_L] [int] NOT NULL,
+	[RANGE_SENSOR_F] [int] NOT NULL,
+	[IS_ADR_RPT] [bit] NOT NULL,
+	[CAN_GUIDE_CHG] [bit] NOT NULL,
+	[HID_CONTROL] [bit] NOT NULL,
+	[BRANCH_FLAG] [bit] NOT NULL,
+	[AREA_SECSOR] [int] NULL,
+	[LAST_TECH_TIME] [smalldatetime] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VTRANSFER]    Script Date: 2021/4/26 下午 11:28:37 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VTRANSFER](
+	[ID] [char](64) NOT NULL,
+	[CARRIER_ID] [char](64) NOT NULL,
+	[LOT_ID] [char](64) NULL,
+	[TRANSFERSTATE] [int] NOT NULL,
+	[COMMANDSTATE] [int] NOT NULL,
+	[HOSTSOURCE] [char](64) NULL,
+	[HOSTDESTINATION] [char](64) NOT NULL,
+	[PRIORITY] [int] NOT NULL,
+	[CHECKCODE] [char](2) NOT NULL,
+	[CMD_INSER_TIME] [datetime2](7) NOT NULL,
+	[CMD_START_TIME] [datetime2](7) NULL,
+	[CMD_FINISH_TIME] [datetime2](7) NULL,
+	[TIME_PRIORITY] [int] NOT NULL,
+	[PORT_PRIORITY] [int] NOT NULL,
+	[REPLACE] [int] NOT NULL,
+	[PRIORITY_SUM] [int] NOT NULL,
+	[RESULT_CODE] [char](2) NULL,
+	[EXCUTE_CMD_ID] [char](64) NULL,
+	[CARRIER_INSER_TIME] [datetime2](7) NULL,
+	[CARRIER_LOCATION] [char](64) NULL,
+	[CARRIER_INSTALLED_TIME] [datetime2](7) NULL,
+	[CARRIER_READ_STATUS] [int] NULL,
+	[VH_ID] [char](5) NULL,
+	[COMPLETE_STATUS] [int] NULL
+) ON [PRIMARY]
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10501', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10502', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10503', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10504', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10505', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10506', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10507', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10508', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10509', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10510', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10511', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10512', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10513', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10514', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10515', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10516', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10517', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10518', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10519', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10520', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10521', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10522', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10523', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10524', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10525', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10526', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10527', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10528', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10529', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10530', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10531', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10532', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10533', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10534', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10535', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10536', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10537', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10538', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10539', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10540', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10541', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10542', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10543', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10544', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10545', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10546', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10547', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10548', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10549', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10550', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10551', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10552', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10553', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10554', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10555', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10556', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10557', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10558', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10559', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10560', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10561', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10562', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10563', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10564', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10565', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10566', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10567', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10568', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10569', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10570', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10571', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10572', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10573', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10574', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10575', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10576', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10577', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10578', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AADDRESS] ([ADR_ID], [ADRTYPE], [SEC_ID], [DISTANCE], [P_LOCATION], [IS_DISPLAY], [ZOOM_LV], [PORT1_ID], [P1_LD_VH_TYPE], [P1_ULD_VH_TYPE], [PORT2_ID], [P2_LD_VH_TYPE], [P2_ULD_VH_TYPE], [NODE_ID], [ADR1_DIS], [ADR2_DIS]) VALUES (N'10579', 0, N'NULL ', NULL, N'          ', 1, 10, N'          ', 0, 0, N'          ', 0, 0, NULL, 0, 0)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'MCharger       ', N'CHARGE_NODE    ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6790_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6790_02    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6530_03    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6530_02    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6530_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6411_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6500_03    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6500_02    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6500_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6401_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6525_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6525_02    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6540_03    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6412_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6520_03    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6520_02    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'B5A_6520_01    ', N'ZONE2_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6416_01  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6416_02  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6450_03  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6450_02  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6450_01  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6850_01  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6850_03  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6850_04  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6815_03  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6815_02  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6815_01  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6570_03  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6570_02  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6570_01  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6841_03  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6841_02  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6841_01  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AEQPT] ([EQPT_ID], [NODE_ID], [CIM_MODE], [OPER_MODE], [INLINE_MODE], [EQPT_STAT], [EQPT_PROC_STAT], [CR_RECIPE], [MAX_SHT_CNT], [MIN_SHT_CNT], [ALARM_STAT], [WARN_STAT]) VALUES (N'LINE3_6841_04  ', N'ZONE3_EQ1      ', N' ', N' ', N' ', N' ', N' ', NULL, 0, 0, NULL, NULL)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60101', N'0001 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60201', N'0002 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60301', N'0003 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60401', N'0004 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60501', N'0005 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60601', N'0006 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60701', N'0007 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60801', N'0008 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'60901', N'0009 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61001', N'0010 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61101', N'0011 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61201', N'0012 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61301', N'0013 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61401', N'0014 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61501', N'0015 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61601', N'0016 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61701', N'0017 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61801', N'0018 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'61901', N'0019 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62001', N'0020 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62101', N'0021 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62201', N'0022 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62301', N'0023 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62401', N'0024 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62501', N'0025 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62601', N'0026 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62701', N'0027 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62801', N'0028 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'62901', N'0029 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63001', N'0030 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63101', N'0031 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63201', N'0032 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63301', N'0033 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63401', N'0034 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63501', N'0035 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63601', N'0036 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63701', N'0037 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63801', N'0038 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'63901', N'0039 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64001', N'0040 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64101', N'0041 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64201', N'0042 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64301', N'0043 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64401', N'0044 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64501', N'0045 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64601', N'0046 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64701', N'0047 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64801', N'0048 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'64901', N'0049 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65001', N'0050 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65101', N'0051 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65201', N'0052 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65301', N'0053 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65401', N'0054 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65501', N'0055 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65601', N'0056 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65701', N'0057 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65801', N'0058 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'65901', N'0059 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66001', N'0060 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66101', N'0061 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66201', N'0062 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66301', N'0063 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66401', N'0064 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66501', N'0065 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66601', N'0066 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66701', N'0067 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66801', N'0068 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'66901', N'0069 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67001', N'0070 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67101', N'0071 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67201', N'0072 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67301', N'0073 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67401', N'0074 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67501', N'0075 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67601', N'0076 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67701', N'0077 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67801', N'0078 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'67901', N'0079 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68001', N'0080 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68101', N'0081 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68201', N'0082 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68301', N'0083 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68401', N'0084 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68501', N'0085 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68601', N'0086 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68701', N'0087 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68801', N'0088 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'68901', N'0089 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69001', N'0090 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69101', N'0091 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69201', N'0092 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69301', N'0093 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69401', N'0094 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69501', N'0095 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69601', N'0096 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69701', N'0097 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69801', N'0098 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'69901', N'0099 ', 1, 1)
+GO
+INSERT [dbo].[AGROUPRAILS] ([SECTION_ID], [RAIL_ID], [RAIL_NO], [DIR]) VALUES (N'70001', N'0100 ', 1, 1)
+GO
+INSERT [dbo].[ALINE] ([LINE_ID], [HOST_MODE], [LINE_STAT]) VALUES (N'AAAGV600       ', 0, 0)
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'AGV_NODE       ', N'AGV_ZONE       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'CHARGE_NODE    ', N'AGV_ZONE       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE1_ST02     ', N'EQ_ZONE1       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE1_ST01     ', N'EQ_ZONE1       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE1_EQ1      ', N'EQ_ZONE1       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE2_STK2_ST01', N'EQ_ZONE2       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE2_LINE_ST01', N'EQ_ZONE2       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE2_LINE_ST02', N'EQ_ZONE2       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE2_LOOP_ST01', N'EQ_ZONE2       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE2_EQ1      ', N'EQ_ZONE2       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE3_STK1_ST01', N'EQ_ZONE3       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE3_LINE_ST01', N'EQ_ZONE3       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE3_LINE_ST02', N'EQ_ZONE3       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE3_LINE_ST03', N'EQ_ZONE3       ')
+GO
+INSERT [dbo].[ANODE] ([NODE_ID], [ZONE_ID]) VALUES (N'ZONE3_EQ1      ', N'EQ_ZONE3       ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10501', N'10501', N'NULL ', 1, 395, 607, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10502', N'10502', N'NULL ', 1, 395, 540, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10503', N'10503', N'NULL ', 1, 396, 508, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10504', N'10504', N'NULL ', 1, 591, 508, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10505', N'10505', N'NULL ', 1, 590, 583, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10506', N'10506', N'NULL ', 1, 594, 597, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10507', N'10507', N'NULL ', 1, 495, 597, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10508', N'10508', N'NULL ', 1, 461, 597, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10509', N'10509', N'NULL ', 1, 821, 585, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10510', N'10510', N'NULL ', 1, 860, 631, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10511', N'10511', N'NULL ', 1, 887, 631, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10512', N'10512', N'NULL ', 1, 919, 585, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10513', N'10513', N'NULL ', 1, 986, 582, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10514', N'10514', N'NULL ', 1, 987, 828, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10515', N'10515', N'NULL ', 1, 1062, 830, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10516', N'10516', N'NULL ', 1, 1062, 1282, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10517', N'10517', N'NULL ', 1, 1047, 1277, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10518', N'10518', N'NULL ', 1, 1010, 1277, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10519', N'10519', N'NULL ', 1, 1062, 1227, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10520', N'10520', N'NULL ', 1, 1068, 582, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10521', N'10521', N'NULL ', 1, 1066, 510, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10522', N'10522', N'NULL ', 1, 992, 503, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10523', N'10523', N'NULL ', 1, 990, 261, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10524', N'10524', N'NULL ', 1, 996, 146, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10525', N'10525', N'NULL ', 1, 966, 146, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10526', N'10526', N'NULL ', 1, 1015, 146, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10527', N'10527', N'NULL ', 1, 1070, 146, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10528', N'10528', N'NULL ', 1, 1070, 261, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10529', N'10529', N'NULL ', 1, 1124, 146, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10530', N'10530', N'NULL ', 1, 1126, 206, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10531', N'10531', N'NULL ', 1, 1113, 260, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10532', N'10532', N'NULL ', 1, 1168, 146, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10533', N'10533', N'NULL ', 1, 1163, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10534', N'10534', N'NULL ', 1, 1195, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10535', N'10535', N'NULL ', 1, 1227, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10536', N'10536', N'NULL ', 1, 1259, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10537', N'10537', N'NULL ', 1, 1288, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10538', N'10538', N'NULL ', 1, 1294, 146, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10539', N'10539', N'NULL ', 1, 1290, 206, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10540', N'10540', N'NULL ', 1, 1294, 261, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10541', N'10541', N'NULL ', 1, 1293, 323, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10542', N'10542', N'NULL ', 1, 1252, 319, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10543', N'10543', N'NULL ', 1, 1228, 319, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10544', N'10544', N'NULL ', 1, 1188, 319, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10545', N'10545', N'NULL ', 1, 1188, 261, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10546', N'10546', N'NULL ', 1, 1337, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10547', N'10547', N'NULL ', 1, 1366, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10548', N'10548', N'NULL ', 1, 1395, 123, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10549', N'10549', N'NULL ', 1, 1440, 128, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10550', N'10550', N'NULL ', 1, 1443, 147, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10551', N'10551', N'NULL ', 1, 1582, 148, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10552', N'10552', N'NULL ', 1, 1649, 147, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10553', N'10553', N'NULL ', 1, 1587, 206, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10554', N'10554', N'NULL ', 1, 1587, 262, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10555', N'10555', N'NULL ', 1, 1463, 266, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10556', N'10556', N'NULL ', 1, 1460, 323, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10557', N'10557', N'NULL ', 1, 1416, 323, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10558', N'10558', N'NULL ', 1, 1384, 323, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10559', N'10559', N'NULL ', 1, 1716, 210, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10560', N'10560', N'NULL ', 1, 1835, 211, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10561', N'10561', N'NULL ', 1, 1834, 269, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10562', N'10562', N'NULL ', 1, 1838, 327, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10563', N'10563', N'NULL ', 1, 1803, 327, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10564', N'10564', N'NULL ', 1, 1774, 327, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10565', N'10565', N'NULL ', 1, 1711, 262, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10566', N'10566', N'NULL ', 1, 1717, 326, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10567', N'10567', N'NULL ', 1, 1666, 326, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10568', N'10568', N'NULL ', 1, 1634, 326, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10569', N'10569', N'NULL ', 1, 1582, 327, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10570', N'10570', N'NULL ', 1, 1990, 211, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10571', N'10571', N'NULL ', 1, 1995, 264, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10572', N'10572', N'NULL ', 1, 1991, 330, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10573', N'10573', N'NULL ', 1, 2047, 211, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10574', N'10574', N'NULL ', 1, 2046, 268, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10575', N'10575', N'NULL ', 1, 2049, 327, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10576', N'10576', N'NULL ', 1, 2028, 327, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10577', N'10577', N'NULL ', 1, 923, 631, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10578', N'10578', N'NULL ', 1, 824, 631, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[APOINT] ([POINT_ID], [ADR_ID], [RAIL_ID], [POINTTYPE], [LOCATIONX], [LOCATIONY], [HEIGHT], [WIDTH], [COLOR]) VALUES (N'10579', N'10579', NULL, 1, 439, 503, 8, 8, N'FFDCDCDC  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0001 ', 1, 390, 540, 10, 1250, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0002 ', 1, 390, 506, 10, 630, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0003 ', 0, 438, 503, 10, 2850, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0004 ', 1, 585, 503, 10, 1550, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0005 ', 1, 585, 586, 10, 310, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0006 ', 0, 495, 592, 10, 1850, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0007 ', 0, 461, 592, 10, 630, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0008 ', 0, 591, 503, 10, 7500, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0009 ', 1, 987, 504, 10, 1510, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0010 ', 0, 919, 578, 10, 1400, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0011 ', 0, 824, 578, 10, 1800, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0012 ', 0, 590, 578, 10, 4340, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0013 ', 1, 816, 585, 10, 1000, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0014 ', 0, 856, 626, 10, 570, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0015 ', 1, 914, 585, 10, 1000, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0016 ', 1, 987, 583, 10, 4560, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0017 ', 0, 987, 823, 10, 1500, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0018 ', 1, 1058, 583, 10, 4560, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0019 ', 1, 1057, 830, 10, 7360, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0020 ', 0, 1039, 1272, 10, 360, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0021 ', 0, 1010, 1272, 10, 700, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0022 ', 1, 1057, 1227, 10, 1030, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0023 ', 1, 1058, 502, 10, 1510, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0024 ', 0, 987, 503, 10, 1530, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0025 ', 0, 986, 577, 10, 1530, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0026 ', 1, 987, 252, 10, 4650, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0027 ', 1, 987, 141, 10, 2070, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0028 ', 0, 966, 141, 10, 400, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0029 ', 0, 996, 141, 10, 450, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0030 ', 0, 1015, 141, 10, 1080, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0031 ', 1, 1063, 151, 10, 2070, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0032 ', 0, 990, 256, 10, 1500, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0033 ', 1, 1061, 259, 10, 4650, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0034 ', 0, 1070, 141, 10, 1020, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0035 ', 1, 1116, 152, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0036 ', 1, 1116, 207, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0037 ', 0, 1070, 256, 10, 1020, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0038 ', 0, 1124, 141, 10, 830, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0039 ', 1, 1159, 124, 10, 320, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0040 ', 0, 1163, 118, 10, 600, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0041 ', 0, 1195, 118, 10, 600, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0042 ', 0, 1227, 118, 10, 600, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0043 ', 0, 1259, 118, 10, 600, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0044 ', 1, 1283, 124, 10, 320, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0045 ', 0, 1168, 141, 10, 2350, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0046 ', 1, 1284, 150, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0047 ', 0, 1126, 201, 10, 3100, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0048 ', 1, 1283, 206, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0049 ', 0, 1188, 254, 10, 1930, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0050 ', 0, 1113, 255, 10, 1470, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0051 ', 1, 1183, 261, 10, 1170, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0052 ', 0, 1188, 314, 10, 825, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0053 ', 0, 1228, 314, 10, 450, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0054 ', 0, 1252, 314, 10, 710, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0055 ', 1, 1283, 260, 10, 1140, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0056 ', 0, 1288, 118, 10, 910, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0057 ', 0, 1337, 118, 10, 550, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0058 ', 0, 1366, 118, 10, 550, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0059 ', 0, 1395, 118, 10, 910, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0060 ', 1, 1435, 128, 10, 320, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0061 ', 0, 1294, 141, 10, 2800, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0062 ', 0, 1443, 142, 10, 2625, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0063 ', 0, 1584, 142, 10, 1215, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0064 ', 1, 1577, 148, 10, 1180, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0065 ', 0, 1290, 201, 10, 5500, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0066 ', 1, 1577, 211, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0067 ', 0, 1466, 256, 10, 2200, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0068 ', 0, 1294, 256, 10, 3200, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0069 ', 1, 1458, 266, 10, 1140, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0070 ', 0, 1416, 318, 10, 830, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0071 ', 0, 1384, 318, 10, 600, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0072 ', 0, 1293, 318, 10, 1700, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0073 ', 0, 1587, 201, 10, 2230, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0074 ', 0, 1707, 201, 10, 2230, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0075 ', 0, 1827, 201, 10, 3000, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0076 ', 0, 1988, 201, 10, 1200, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0077 ', 1, 2042, 211, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0078 ', 0, 1989, 258, 10, 1200, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0079 ', 1, 2041, 268, 10, 1160, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0080 ', 0, 2021, 322, 10, 520, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0081 ', 0, 1989, 322, 10, 740, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0082 ', 1, 1986, 268, 10, 1160, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0083 ', 1, 1985, 211, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0084 ', 0, 1834, 259, 10, 3000, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0085 ', 1, 1830, 211, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0086 ', 0, 1718, 259, 10, 2230, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0087 ', 1, 1829, 269, 10, 1160, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0088 ', 0, 1803, 322, 10, 650, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0089 ', 0, 1774, 322, 10, 550, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0090 ', 0, 1716, 322, 10, 1080, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0091 ', 1, 1711, 210, 10, 1035, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0092 ', 1, 1711, 265, 10, 1160, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0093 ', 0, 1665, 321, 10, 980, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0094 ', 0, 1632, 321, 10, 630, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0095 ', 0, 1578, 321, 10, 1040, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0096 ', 1, 1577, 266, 10, 1140, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0097 ', 0, 1587, 257, 10, 2310, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0098 ', 0, 887, 626, 10, 680, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0099 ', 0, 824, 626, 10, 680, N'FF0080FF  ')
+GO
+INSERT [dbo].[ARAIL] ([RAIL_ID], [RAILTYPE], [LOCATIONX], [LOCATIONY], [WIDTH], [LENGTH], [COLOR]) VALUES (N'0100 ', 0, 396, 503, 10, 800, N'FF0080FF  ')
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60101', 1, N'601', N'10501', N'10502', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', NULL, 0, NULL, 0, NULL, 0, N'60201', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60201', 1, N'602', N'10502', N'10503', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60101', 0, NULL, 0, NULL, 0, N'70001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60301', 1, N'603', N'10579', N'10504', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'70001', 0, NULL, 0, NULL, 0, N'60401', 0, N'60801', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60401', 1, N'604', N'10504', N'10505', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60301', 0, N'60801', 0, NULL, 0, N'60501', 0, N'61201', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60501', 1, N'605', N'10505', N'10506', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60401', 0, N'61201', 0, NULL, 0, N'60601', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60601', 1, N'606', N'10506', N'10507', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60501', 0, NULL, 0, NULL, 0, N'60701', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60701', 1, N'607', N'10507', N'10508', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60601', 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60801', 1, N'608', N'10504', N'10522', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60301', 0, N'60401', 0, NULL, 0, N'60901', 0, N'62401', 0, N'62601', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'60901', 1, N'609', N'10522', N'10513', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60801', 0, N'62401', 0, N'62601', 0, N'61001', 0, N'61601', 0, N'62501', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61001', 1, N'610', N'10513', N'10512', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60901', 0, N'61601', 0, N'62501', 0, N'61101', 0, N'61501', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61101', 1, N'611', N'10512', N'10509', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61001', 0, N'61501', 0, NULL, 0, N'61201', 0, N'61301', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61201', 1, N'612', N'10509', N'10505', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61101', 0, N'61301', 0, NULL, 0, N'60401', 0, N'60501', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61301', 1, N'613', N'10509', N'10578', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61101', 0, N'61201', 0, NULL, 0, N'69901', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61401', 1, N'614', N'10510', N'10511', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'69901', 0, NULL, 0, NULL, 0, N'69801', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61501', 1, N'615', N'10512', N'10577', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61001', 0, N'61101', 0, NULL, 0, N'69801', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61601', 1, N'616', N'10513', N'10514', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60901', 0, N'61001', 0, N'62501', 0, N'61701', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61701', 1, N'617', N'10514', N'10515', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61601', 0, NULL, 0, NULL, 0, N'61801', 0, N'61901', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61801', 1, N'618', N'10515', N'10520', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61701', 0, N'61901', 0, NULL, 0, N'62301', 0, N'62501', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'61901', 1, N'619', N'10515', N'10519', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61701', 0, N'61801', 0, NULL, 0, N'62201', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62001', 1, N'620', N'10516', N'10517', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62201', 0, NULL, 0, NULL, 0, N'62101', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62101', 1, N'621', N'10517', N'10518', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62001', 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62201', 1, N'622', N'10519', N'10516', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61901', 0, NULL, 0, NULL, 0, N'62001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62301', 1, N'623', N'10520', N'10521', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61801', 0, N'62501', 0, NULL, 0, N'62401', 0, N'63301', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62401', 1, N'624', N'10521', N'10522', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62301', 0, N'63301', 0, NULL, 0, N'60801', 0, N'60901', 0, N'62601', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62501', 1, N'625', N'10513', N'10520', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60901', 0, N'61001', 0, N'61601', 0, N'61801', 0, N'62301', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62601', 1, N'626', N'10522', N'10523', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60801', 0, N'60901', 0, N'62401', 0, N'62701', 0, N'63201', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62701', 1, N'627', N'10523', N'10524', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62601', 0, N'63201', 0, NULL, 0, N'62801', 0, N'62901', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62801', 1, N'628', N'10524', N'10525', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62701', 0, N'62901', 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'62901', 1, N'629', N'10524', N'10526', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62701', 0, N'62801', 0, NULL, 0, N'63001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63001', 1, N'630', N'10526', N'10527', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62901', 0, NULL, 0, NULL, 0, N'63101', 0, N'63401', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63101', 1, N'631', N'10527', N'10528', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63001', 0, N'63401', 0, NULL, 0, N'63201', 0, N'63301', 0, N'63701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63201', 1, N'632', N'10523', N'10528', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'62601', 0, N'62701', 0, NULL, 0, N'63101', 0, N'63301', 0, N'63701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63301', 1, N'633', N'10528', N'10521', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63101', 0, N'63201', 0, N'63701', 0, N'62301', 0, N'62401', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63401', 1, N'634', N'10527', N'10529', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63001', 0, N'63101', 0, NULL, 0, N'63501', 0, N'63801', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63501', 1, N'635', N'10529', N'10530', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63401', 0, N'63801', 0, NULL, 0, N'63601', 0, N'64701', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63601', 1, N'636', N'10530', N'10531', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63501', 0, N'64701', 0, NULL, 0, N'63701', 0, N'65001', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63701', 1, N'637', N'10531', N'10528', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63601', 0, N'65001', 0, NULL, 0, N'63101', 0, N'63201', 0, N'63301', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63801', 1, N'638', N'10529', N'10532', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63401', 0, N'63501', 0, NULL, 0, N'63901', 0, N'64501', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'63901', 1, N'639', N'10532', N'10533', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63801', 0, N'64501', 0, NULL, 0, N'64001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64001', 1, N'640', N'10533', N'10534', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'63901', 0, NULL, 0, NULL, 0, N'64101', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64101', 1, N'641', N'10534', N'10535', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64001', 0, NULL, 0, NULL, 0, N'64201', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64201', 1, N'642', N'10535', N'10536', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64101', 0, NULL, 0, NULL, 0, N'64301', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64301', 1, N'643', N'10536', N'10537', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64201', 0, NULL, 0, NULL, 0, N'64401', 0, N'65601', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64401', 1, N'644', N'10537', N'10538', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64301', 0, N'65601', 0, NULL, 0, N'64501', 0, N'64601', 0, N'66101', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64501', 1, N'645', N'10538', N'10532', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64401', 0, N'64601', 0, N'66101', 0, N'63801', 0, N'63901', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64601', 1, N'646', N'10538', N'10539', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64401', 0, N'64501', 0, N'66101', 0, N'64701', 0, N'64801', 0, N'66501', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64701', 1, N'647', N'10539', N'10530', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64601', 0, N'64801', 0, N'66501', 0, N'63501', 0, N'63601', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64801', 1, N'648', N'10539', N'10540', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64601', 0, N'64701', 0, N'66501', 0, N'64901', 0, N'65501', 0, N'66801', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'64901', 1, N'649', N'10540', N'10545', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64801', 0, N'65501', 0, N'66801', 0, N'65001', 0, N'65101', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65001', 1, N'650', N'10545', N'10531', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64901', 0, N'65101', 0, NULL, 0, N'63601', 0, N'63701', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65101', 1, N'651', N'10545', N'10544', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64901', 0, N'65001', 0, NULL, 0, N'65201', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65201', 1, N'652', N'10543', N'10544', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'65301', 0, NULL, 0, NULL, 0, N'65101', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65301', 1, N'653', N'10542', N'10543', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'65401', 0, NULL, 0, NULL, 0, N'65201', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65401', 1, N'654', N'10541', N'10542', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'65501', 0, N'67201', 0, NULL, 0, N'65301', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65501', 1, N'655', N'10540', N'10541', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64801', 0, N'64901', 0, N'66801', 0, N'65401', 0, N'67201', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65601', 1, N'656', N'10537', N'10546', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'64301', 0, N'64401', 0, NULL, 0, N'65701', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65701', 1, N'657', N'10546', N'10547', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'65601', 0, NULL, 0, NULL, 0, N'65801', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65801', 1, N'658', N'10547', N'10548', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'65701', 0, NULL, 0, NULL, 0, N'65901', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'65901', 1, N'659', N'10548', N'10549', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'65801', 0, NULL, 0, NULL, 0, N'66001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66001', 1, N'660', N'10549', N'10550', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'65901', 0, NULL, 0, NULL, 0, N'66101', 0, N'66201', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66101', 1, N'661', N'10550', N'10538', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66001', 0, N'66201', 0, NULL, 0, N'64401', 0, N'64501', 0, N'64601', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66201', 1, N'662', N'10550', N'10551', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66001', 0, N'66101', 0, NULL, 0, N'66301', 0, N'66401', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66301', 1, N'663', N'10551', N'10552', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66201', 0, N'66401', 0, NULL, 0, NULL, 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66401', 1, N'664', N'10551', N'10553', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66201', 0, N'66301', 0, NULL, 0, N'66501', 0, N'66601', 0, N'67301', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66501', 1, N'665', N'10553', N'10539', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66401', 0, N'66601', 0, N'67301', 0, N'64601', 0, N'64701', 0, N'64801', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66601', 1, N'666', N'10553', N'10554', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66401', 0, N'66501', 0, N'67301', 0, N'66701', 0, N'69601', 0, N'69701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66701', 1, N'667', N'10554', N'10555', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66601', 0, N'69601', 0, N'69701', 0, N'66801', 0, N'66901', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66801', 1, N'668', N'10555', N'10540', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66701', 0, N'66901', 0, NULL, 0, N'64801', 0, N'64901', 0, N'65501', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'66901', 1, N'669', N'10555', N'10556', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66701', 0, N'66801', 0, NULL, 0, N'67001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67001', 1, N'670', N'10556', N'10557', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66901', 0, NULL, 0, NULL, 0, N'67101', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67101', 1, N'671', N'10557', N'10558', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67001', 0, NULL, 0, NULL, 0, N'67201', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67201', 1, N'672', N'10558', N'10541', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67101', 0, NULL, 0, NULL, 0, N'65401', 0, N'65501', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67301', 1, N'673', N'10553', N'10559', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66401', 0, N'66501', 0, N'66601', 0, N'67401', 0, N'69101', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67401', 1, N'674', N'10559', N'10560', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67301', 0, N'69101', 0, NULL, 0, N'67501', 0, N'68501', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67501', 1, N'675', N'10560', N'10570', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67401', 0, N'68501', 0, NULL, 0, N'67601', 0, N'68301', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67601', 1, N'676', N'10570', N'10573', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67501', 0, N'68301', 0, NULL, 0, N'67701', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67701', 1, N'677', N'10573', N'10574', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67601', 0, NULL, 0, NULL, 0, N'67801', 0, N'67901', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67801', 1, N'678', N'10574', N'10571', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67701', 0, N'67901', 0, NULL, 0, N'68201', 0, N'68301', 0, N'68401', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'67901', 1, N'679', N'10574', N'10575', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67701', 0, N'67801', 0, NULL, 0, N'68001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68001', 1, N'680', N'10575', N'10576', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67901', 0, NULL, 0, NULL, 0, N'68101', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68101', 1, N'681', N'10576', N'10572', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'68001', 0, NULL, 0, NULL, 0, N'68201', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68201', 1, N'682', N'10571', N'10572', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67801', 0, N'68301', 0, N'68401', 0, N'68101', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68301', 1, N'683', N'10570', N'10571', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67501', 0, N'67601', 0, NULL, 0, N'67801', 0, N'68201', 0, N'68401', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68401', 1, N'684', N'10571', N'10561', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67801', 0, N'68201', 0, N'68301', 0, N'68501', 0, N'68601', 0, N'68701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68501', 1, N'685', N'10560', N'10561', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67401', 0, N'67501', 0, NULL, 0, N'68401', 0, N'68601', 0, N'68701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68601', 1, N'686', N'10561', N'10565', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'68401', 0, N'68501', 0, N'68701', 0, N'69101', 0, N'69201', 0, N'69701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68701', 1, N'687', N'10561', N'10562', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'68401', 0, N'68501', 0, N'68601', 0, N'68801', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68801', 1, N'688', N'10562', N'10563', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'68701', 0, NULL, 0, NULL, 0, N'68901', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'68901', 1, N'689', N'10563', N'10564', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'68801', 0, NULL, 0, NULL, 0, N'69001', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69001', 1, N'690', N'10564', N'10566', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'68901', 0, NULL, 0, NULL, 0, N'69201', 0, N'69301', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69101', 1, N'691', N'10559', N'10565', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'67301', 0, N'67401', 0, NULL, 0, N'68601', 0, N'69201', 0, N'69701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69201', 1, N'692', N'10565', N'10566', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'68601', 0, N'69101', 0, N'69701', 0, N'69001', 0, N'69301', 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69301', 1, N'693', N'10566', N'10567', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'69001', 0, N'69201', 0, NULL, 0, N'69401', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69401', 1, N'694', N'10567', N'10568', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'69301', 0, NULL, 0, NULL, 0, N'69501', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69501', 1, N'695', N'10568', N'10569', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'69401', 0, NULL, 0, NULL, 0, N'69601', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69601', 1, N'696', N'10569', N'10554', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'69501', 0, NULL, 0, NULL, 0, N'66601', 0, N'66701', 0, N'69701', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69701', 1, N'697', N'10554', N'10565', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'66601', 0, N'66701', 0, N'69601', 0, N'68601', 0, N'69101', 0, N'69201', 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69801', 1, N'698', N'10577', N'10511', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61501', 0, NULL, 0, NULL, 0, N'61401', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'69901', 1, N'699', N'10510', N'10578', 1000, 0, 0, 2, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'61401', 0, NULL, 0, NULL, 0, N'61301', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 0, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASECTION] ([SEC_ID], [SEG_ORDER_NUM], [SEG_NUM], [FROM_ADR_ID], [TO_ADR_ID], [SEC_DIS], [SEC_SPD], [SEC_TYPE], [SEC_DIR], [LAST_TECH_TIME], [SUB_VER], [ADD_TIME], [ADD_USER], [UPD_TIME], [UPD_USER], [ADR1_CHG_SEC_ID_1], [ADR1_CHG_SEC_COST_1], [ADR1_CHG_SEC_ID_2], [ADR1_CHG_SEC_COST_2], [ADR1_CHG_SEC_ID_3], [ADR1_CHG_SEC_COST_3], [ADR2_CHG_SEC_ID_1], [ADR2_CHG_SEC_COST_1], [ADR2_CHG_SEC_ID_2], [ADR2_CHG_SEC_COST_2], [ADR2_CHG_SEC_ID_3], [ADR2_CHG_SEC_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From], [STATUS], [NOTE], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [DISABLE_FLAG_USER], [DISABLE_FLAG_SAFETY], [DISABLE_FLAG_CHARGE], [DISABLE_FLAG_SYSTEM]) VALUES (N'70001', 1, N'700', N'10503', N'10579', 1000, 0, 0, 1, NULL, N'0   ', NULL, N'NULL      ', NULL, N'NULL      ', N'60201', 0, NULL, 0, NULL, 0, N'60301', 0, NULL, 0, NULL, 0, 0, 0, 0, 0, 0, N'NULL                                    ', 1, NULL, NULL, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'601       ', N'10501', N'10502', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'602       ', N'10502', N'10503', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'603       ', N'10579', N'10504', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'604       ', N'10504', N'10505', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'605       ', N'10505', N'10506', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'606       ', N'10506', N'10507', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'607       ', N'10507', N'10508', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'608       ', N'10504', N'10522', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'609       ', N'10522', N'10513', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'610       ', N'10513', N'10512', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'611       ', N'10512', N'10509', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'612       ', N'10509', N'10505', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'613       ', N'10509', N'10578', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'614       ', N'10510', N'10511', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'615       ', N'10512', N'10577', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'616       ', N'10513', N'10514', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'617       ', N'10514', N'10515', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'618       ', N'10515', N'10520', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'619       ', N'10515', N'10519', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'620       ', N'10516', N'10517', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'621       ', N'10517', N'10518', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'622       ', N'10519', N'10516', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'623       ', N'10520', N'10521', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'624       ', N'10521', N'10522', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'625       ', N'10513', N'10520', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'626       ', N'10522', N'10523', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'627       ', N'10523', N'10524', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'628       ', N'10524', N'10525', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'629       ', N'10524', N'10526', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'630       ', N'10526', N'10527', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'631       ', N'10527', N'10528', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'632       ', N'10523', N'10528', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'633       ', N'10528', N'10521', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'634       ', N'10527', N'10529', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'635       ', N'10529', N'10530', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'636       ', N'10530', N'10531', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'637       ', N'10531', N'10528', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'638       ', N'10529', N'10532', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'639       ', N'10532', N'10533', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'640       ', N'10533', N'10534', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'641       ', N'10534', N'10535', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'642       ', N'10535', N'10536', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'643       ', N'10536', N'10537', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'644       ', N'10537', N'10538', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'645       ', N'10538', N'10532', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'646       ', N'10538', N'10539', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'647       ', N'10539', N'10530', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'648       ', N'10539', N'10540', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'649       ', N'10540', N'10545', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'650       ', N'10545', N'10531', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'651       ', N'10545', N'10544', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'652       ', N'10543', N'10544', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'653       ', N'10542', N'10543', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'654       ', N'10541', N'10542', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'655       ', N'10540', N'10541', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'656       ', N'10537', N'10546', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'657       ', N'10546', N'10547', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'658       ', N'10547', N'10548', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'659       ', N'10548', N'10549', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'660       ', N'10549', N'10550', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'661       ', N'10550', N'10538', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'662       ', N'10550', N'10551', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'663       ', N'10551', N'10552', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'664       ', N'10551', N'10553', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'665       ', N'10553', N'10539', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'666       ', N'10553', N'10554', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'667       ', N'10554', N'10555', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'668       ', N'10555', N'10540', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'669       ', N'10555', N'10556', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'670       ', N'10556', N'10557', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'671       ', N'10557', N'10558', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'672       ', N'10558', N'10541', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'673       ', N'10553', N'10559', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'674       ', N'10559', N'10560', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'675       ', N'10560', N'10570', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'676       ', N'10570', N'10573', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'677       ', N'10573', N'10574', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'678       ', N'10574', N'10571', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'679       ', N'10574', N'10575', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'680       ', N'10575', N'10576', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'681       ', N'10576', N'10572', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'682       ', N'10571', N'10572', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'683       ', N'10570', N'10571', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'684       ', N'10571', N'10561', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'685       ', N'10560', N'10561', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'686       ', N'10561', N'10565', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'687       ', N'10561', N'10562', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'688       ', N'10562', N'10563', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'689       ', N'10563', N'10564', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'690       ', N'10564', N'10566', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'691       ', N'10559', N'10565', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'692       ', N'10565', N'10566', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'693       ', N'10566', N'10567', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'694       ', N'10567', N'10568', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'695       ', N'10568', N'10569', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'696       ', N'10569', N'10554', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'697       ', N'10554', N'10565', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'698       ', N'10577', N'10511', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'699       ', N'10510', N'10578', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 2, 0, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[ASEGMENT] ([SEG_ID], [FROM_ADR_ID], [TO_ADR_ID], [STATUS], [SEG_TYPE], [SEG_RAIL_TYPE], [SPECIAL_MARK], [RESERVE_FIELD], [NOTE], [DIR], [PRE_DISABLE_FLAG], [PRE_DISABLE_TIME], [DISABLE_TIME], [ADR1_CHG_SEG_ID_1], [ADR1_CHG_SEG_COST_1], [ADR1_CHG_SEG_ID_2], [ADR1_CHG_SEG_COST_2], [ADR1_CHG_SEG_ID_3], [ADR1_CHG_SEG_COST_3], [ADR2_CHG_SEG_ID_1], [ADR2_CHG_SEG_COST_1], [ADR2_CHG_SEG_ID_2], [ADR2_CHG_SEG_COST_2], [ADR2_CHG_SEG_ID_3], [ADR2_CHG_SEG_COST_3], [SEC_COST_From2To], [SEC_COST_To2From], [ISBANEND_From2To], [ISBANEND_To2From]) VALUES (N'700       ', N'10503', N'10579', 1, 1, 0, NULL, N'NULL                                    ', N'NULL                                    ', 1, 1, NULL, NULL, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, N'NULL ', 0, 0, 0, 0, 0)
+GO
+INSERT [dbo].[AZONE] ([ZONE_ID], [LINE_ID], [LOT_ID]) VALUES (N'AGV_ZONE       ', N'AAAGV600       ', NULL)
+GO
+INSERT [dbo].[AZONE] ([ZONE_ID], [LINE_ID], [LOT_ID]) VALUES (N'EQ_ZONE1       ', N'AAAGV600       ', NULL)
+GO
+INSERT [dbo].[AZONE] ([ZONE_ID], [LINE_ID], [LOT_ID]) VALUES (N'EQ_ZONE2       ', N'AAAGV600       ', NULL)
+GO
+INSERT [dbo].[AZONE] ([ZONE_ID], [LINE_ID], [LOT_ID]) VALUES (N'EQ_ZONE3       ', N'AAAGV600       ', NULL)
+GO
+USE [master]
+GO
+ALTER DATABASE [AGVC_AT_S_BAY1_v1] SET  READ_WRITE 
+GO
