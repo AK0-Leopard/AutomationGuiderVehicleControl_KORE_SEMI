@@ -420,6 +420,7 @@ namespace com.mirle.ibg3k0.sc.App
             public const string VERSION_NAME_AT_S = "AT_S";
             public const string VERSION_NAME_AT_S_BAY1 = "AT_S_BAY1";
             public const string VERSION_NAME_AT_S_BAY2 = "AT_S_BAY2";
+            public const string VERSION_NAME_KORE_AGVC = "KORE_AGVC";
         }
 
         #endregion current work version
