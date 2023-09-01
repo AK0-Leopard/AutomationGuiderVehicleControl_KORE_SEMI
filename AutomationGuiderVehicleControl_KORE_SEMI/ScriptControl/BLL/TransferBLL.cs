@@ -1,4 +1,17 @@
-﻿using com.mirle.ibg3k0.sc.App;
+﻿//*********************************************************************************
+//      TransferBLL.cs
+//*********************************************************************************
+// File Name: TransferBLL.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能                            
+//**********************************************************************************
+
+using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.Common;
 using com.mirle.ibg3k0.sc.Data;
 using com.mirle.ibg3k0.sc.Data.DAO;
@@ -16,7 +29,7 @@ namespace com.mirle.ibg3k0.sc.BLL
         private static Logger logger = LogManager.GetCurrentClassLogger();
         public DB db = null;
         public Web web = null;
-        public Redis redis = null;
+        //A0.01 public Redis redis = null;
         public TransferBLL()
         {
         }
@@ -25,7 +38,7 @@ namespace com.mirle.ibg3k0.sc.BLL
         {
             db = new DB(scApp);
             web = new Web(scApp.webClientManager);
-            redis = new Redis(scApp.getRedisCacheManager());
+            //A0.01 redis = new Redis(scApp.getRedisCacheManager());
         }
 
         public class DB

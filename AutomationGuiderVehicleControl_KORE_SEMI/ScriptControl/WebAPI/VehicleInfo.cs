@@ -1,4 +1,17 @@
-﻿using com.mirle.ibg3k0.sc.App;
+﻿//*********************************************************************************
+//      VehicleInfo.cs
+//*********************************************************************************
+// File Name: VehicleInfo.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能
+//**********************************************************************************
+
+using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.ProtocolFormat.OHTMessage;
 using Nancy;
 using Newtonsoft.Json;
@@ -140,7 +153,8 @@ namespace com.mirle.ibg3k0.sc.WebAPI
                         query_data = JsonConvert.SerializeObject(scApp.getEQObjCacheManager().getLine());
                         break;
                     case SCAppConstants.MapInfoDataType.Alarm:
-                        query_data = JsonConvert.SerializeObject(scApp.AlarmBLL.getCurrentAlarmsFromRedis());
+                        //A0.01 query_data = JsonConvert.SerializeObject(scApp.AlarmBLL.getCurrentAlarmsFromRedis());
+                        query_data = JsonConvert.SerializeObject(scApp.AlarmBLL.getCurrentAlarms());  //A0.01
                         break;
                 }
                 var response = (Response)query_data;

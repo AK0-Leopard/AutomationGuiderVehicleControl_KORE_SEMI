@@ -1,4 +1,17 @@
-﻿using com.mirle.ibg3k0.sc.App;
+﻿//*********************************************************************************
+//      AddressesBLL.cs
+//*********************************************************************************
+// File Name: AddressesBLL.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能
+//**********************************************************************************
+
+using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.Common;
 using com.mirle.ibg3k0.sc.Data;
 using com.mirle.ibg3k0.sc.Data.DAO;
@@ -19,7 +32,7 @@ namespace com.mirle.ibg3k0.sc.BLL
         public SCApplication scApp;
         public Database dataBase { get; private set; }
         public Cache cache { get; private set; }
-        public Redis redis { get; private set; }
+        //A0.01 public Redis redis { get; private set; }
         public AddressesBLL()
         {
         }
@@ -27,7 +40,7 @@ namespace com.mirle.ibg3k0.sc.BLL
         {
             scApp = _app;
             cache = new Cache(scApp.getCommObjCacheManager());
-            redis = new Redis(scApp.getRedisCacheManager(), scApp.SectionBLL, scApp);
+            //A0.01 redis = new Redis(scApp.getRedisCacheManager(), scApp.SectionBLL, scApp);
         }
 
 

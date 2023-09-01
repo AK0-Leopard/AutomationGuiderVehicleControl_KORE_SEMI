@@ -1,4 +1,17 @@
-﻿using com.mirle.ibg3k0.sc.App;
+﻿//*********************************************************************************
+//      HIDBLL.cs
+//*********************************************************************************
+// File Name: HIDBLL.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能                            
+//**********************************************************************************
+
+using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.Common;
 using com.mirle.ibg3k0.sc.Data;
 using com.mirle.ibg3k0.sc.Data.DAO;
@@ -13,7 +26,7 @@ namespace com.mirle.ibg3k0.sc.BLL
         HIDZoneMasterDao HIDMasterDao = null;
         HIDZoneDetailDao HIDDetailDao = null;
         HIDZoneQueueDao HIDQueueDao = null;
-        RedisCacheManager RedisCacheManager = null;
+        //A0.01 RedisCacheManager RedisCacheManager = null;
         Dictionary<string, int> AHIDZONEMASTERs = null;
         private SCApplication scApp = null;
         public HIDBLL()
@@ -26,7 +39,7 @@ namespace com.mirle.ibg3k0.sc.BLL
             HIDMasterDao = scApp.HIDZoneMasterDao;
             HIDDetailDao = scApp.HIDZoneDetailDao;
             HIDQueueDao = scApp.HIDZoneQueueDao;
-            RedisCacheManager = scApp.getRedisCacheManager();
+            //A0.01 RedisCacheManager = scApp.getRedisCacheManager();
             AHIDZONEMASTERs = loadAllHIDZoneMAXLoadCount();
         }
 
@@ -159,31 +172,31 @@ namespace com.mirle.ibg3k0.sc.BLL
 
 
 
+        //A0.01 Start
+        //const string REDIS_BLOCK_CONTROL_KEY_VHID = "HID_ZONE_{0}_COUNT";
+        //public bool hasEnoughSeat(string hid_zone_id, out long current_vh_count,out int hid_zone_max_load_count)
+        //{
+        //    bool hasEnough = false;
+        //    string check_hid_zone_key = string.Format(REDIS_BLOCK_CONTROL_KEY_VHID, hid_zone_id);
+        //    current_vh_count = (long)RedisCacheManager.StringGet(check_hid_zone_key);
+        //    hid_zone_max_load_count = AHIDZONEMASTERs[hid_zone_id];
+        //    if (current_vh_count <= hid_zone_max_load_count)
+        //    {
+        //        hasEnough = true;
+        //    }
+        //    return hasEnough;
+        //}
 
-        const string REDIS_BLOCK_CONTROL_KEY_VHID = "HID_ZONE_{0}_COUNT";
-        public bool hasEnoughSeat(string hid_zone_id, out long current_vh_count,out int hid_zone_max_load_count)
-        {
-            bool hasEnough = false;
-            string check_hid_zone_key = string.Format(REDIS_BLOCK_CONTROL_KEY_VHID, hid_zone_id);
-            current_vh_count = (long)RedisCacheManager.StringGet(check_hid_zone_key);
-            hid_zone_max_load_count = AHIDZONEMASTERs[hid_zone_id];
-            if (current_vh_count <= hid_zone_max_load_count)
-            {
-                hasEnough = true;
-            }
-            return hasEnough;
-        }
-
-        public void VHEntryHIDZone(string hid_zone_id)
-        {
-            string check_hid_zone_key = string.Format(REDIS_BLOCK_CONTROL_KEY_VHID, hid_zone_id);
-            RedisCacheManager.StringIncrementAsync(check_hid_zone_key);
-        }
-        public void VHLeaveHIDZone(string hid_zone_id)
-        {
-            string check_hid_zone_key = string.Format(REDIS_BLOCK_CONTROL_KEY_VHID, hid_zone_id);
-            RedisCacheManager.StringDecrementAsync(check_hid_zone_key);
-        }
-
+        //public void VHEntryHIDZone(string hid_zone_id)
+        //{
+        //    string check_hid_zone_key = string.Format(REDIS_BLOCK_CONTROL_KEY_VHID, hid_zone_id);
+        //    RedisCacheManager.StringIncrementAsync(check_hid_zone_key);
+        //}
+        //public void VHLeaveHIDZone(string hid_zone_id)
+        //{
+        //    string check_hid_zone_key = string.Format(REDIS_BLOCK_CONTROL_KEY_VHID, hid_zone_id);
+        //    RedisCacheManager.StringDecrementAsync(check_hid_zone_key);
+        //}
+        //A0.01 End
     }
 }

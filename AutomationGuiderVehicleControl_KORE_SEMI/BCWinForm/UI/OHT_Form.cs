@@ -1,4 +1,17 @@
-﻿using com.mirle.ibg3k0.sc;
+﻿//*********************************************************************************
+//      OHT_Form.cs
+//*********************************************************************************
+// File Name: OHT_Form.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能
+//**********************************************************************************
+
+using com.mirle.ibg3k0.sc;
 using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.Data;
 using com.mirle.ibg3k0.sc.Data.ValueDefMapAction;
@@ -166,7 +179,8 @@ namespace com.mirle.ibg3k0.bc.winform.UI
         {
             try
             {
-                List<ALARM> alarms = scApp.AlarmBLL.getCurrentAlarmsFromRedis();
+                //A0.01 List<ALARM> alarms = scApp.AlarmBLL.getCurrentAlarmsFromRedis();
+                List<ALARM> alarms = scApp.AlarmBLL.getCurrentAlarms();  //A0.01
                 Adapter.Invoke((obj) =>
                 {
                     dgv_Alarm.DataSource = alarms;

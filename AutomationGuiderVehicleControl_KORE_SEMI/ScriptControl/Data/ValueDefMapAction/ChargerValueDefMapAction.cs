@@ -8,6 +8,7 @@
 //
 // Date          Author         Request No.    Tag     Description
 // ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能
 //**********************************************************************************
 using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
@@ -112,7 +113,8 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                 eqpt.abnormalReportCode20 = recevie_function.ErrorCode_20;
                 eqpt.AbnormalReportIndex = recevie_function.index;
 
-                var current_has_record_alarms = scApp.AlarmBLL.getCurrentChargerAlarmsFromRedis();
+                //A0.01 var current_has_record_alarms = scApp.AlarmBLL.getCurrentChargerAlarmsFromRedis();
+                var current_has_record_alarms = scApp.AlarmBLL.getCurrentChargerAlarms();  //A0.01
                 var current_has_record_alarm_ids = current_has_record_alarms.Select(alarm => SCUtility.Trim(alarm.ALAM_CODE, true)).ToList();
                 var current_happend_alarm_ids = recevie_function.loadCurrentHappendAlarms();
                 var new_happend_alarm_ids = current_happend_alarm_ids.Except(current_has_record_alarm_ids);
@@ -312,7 +314,8 @@ namespace com.mirle.ibg3k0.sc.Data.ValueDefMapAction
                     eqpt.AbnormalReportIndex = recevie_function.index;
 
 
-                    var current_has_record_alarms = scApp.AlarmBLL.getCurrentChargerAlarmsFromRedis();
+                    //A0.01 var current_has_record_alarms = scApp.AlarmBLL.getCurrentChargerAlarmsFromRedis();
+                    var current_has_record_alarms = scApp.AlarmBLL.getCurrentChargerAlarms();  //A0.01
                     var current_has_record_alarm_ids = current_has_record_alarms.Select(alarm => SCUtility.Trim(alarm.ALAM_CODE, true)).ToList();
                     var current_happend_alarm_ids = recevie_function.loadCurrentHappendAlarms();
                     var new_happend_alarm_ids = current_happend_alarm_ids.Except(current_has_record_alarm_ids);

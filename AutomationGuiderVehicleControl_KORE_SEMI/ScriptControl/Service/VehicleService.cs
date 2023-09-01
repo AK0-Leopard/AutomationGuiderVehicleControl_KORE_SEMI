@@ -1,4 +1,18 @@
-﻿using com.mirle.ibg3k0.bcf.App;
+﻿//*********************************************************************************
+//      VehicleService.cs
+//*********************************************************************************
+// File Name: VehicleService.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   調整Remove車輛邏輯，避免車輛殘留在Reserve功能內
+//                                                     移除不必要的Redis功能
+//**********************************************************************************
+
+using com.mirle.ibg3k0.bcf.App;
 using com.mirle.ibg3k0.bcf.Common;
 using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.BLL;
@@ -1083,7 +1097,7 @@ namespace com.mirle.ibg3k0.sc.Service
                         }
                     }
                     scApp.ReportBLL.newSendMCSMessage(reportqueues);
-                    scApp.SysExcuteQualityBLL.updateSysExecQity_ArrivalSourcePort(cmd.TRANSFER_ID);
+                    //A0.01 scApp.SysExcuteQualityBLL.updateSysExecQity_ArrivalSourcePort(cmd.TRANSFER_ID);
                 }
                 else
                 {
@@ -1465,7 +1479,7 @@ namespace com.mirle.ibg3k0.sc.Service
                         }
                     }
                     scApp.ReportBLL.newSendMCSMessage(reportqueues);
-                    scApp.SysExcuteQualityBLL.updateSysExecQity_ArrivalDestnPort(cmd.TRANSFER_ID);
+                    //A0.01 scApp.SysExcuteQualityBLL.updateSysExecQity_ArrivalDestnPort(cmd.TRANSFER_ID);
                 }
                 else
                 {
@@ -2528,7 +2542,7 @@ namespace com.mirle.ibg3k0.sc.Service
 
                             is_success = is_success && scApp.CMDBLL.updateCMD_MCS_TranStatus2Complete(finish_fransfer_cmd_id, completeStatus);
                             is_success = is_success && scApp.ReportBLL.ReportTransferResult2MCS(finish_fransfer_cmd_id, completeStatus);
-                            is_success = is_success && scApp.SysExcuteQualityBLL.SysExecQityfinish(finish_fransfer_cmd_id, completeStatus, totalTravelDis);
+                            //A0.01 is_success = is_success && scApp.SysExcuteQualityBLL.SysExecQityfinish(finish_fransfer_cmd_id, completeStatus, totalTravelDis);
                             if (completeStatus == CompleteStatus.IdmisMatch ||
                                 completeStatus == CompleteStatus.IdreadFailed)
                             {
@@ -4277,8 +4291,7 @@ namespace com.mirle.ibg3k0.sc.Service
                 scApp.getNatsManager().PublishAsync
                     (string.Format(SCAppConstants.NATS_SUBJECT_VH_INFO_0, vh.VEHICLE_ID.Trim()), vh_Serialize);
 
-                scApp.getRedisCacheManager().ListSetByIndexAsync
-                    (SCAppConstants.REDIS_LIST_KEY_VEHICLES, vh.VEHICLE_ID, vh.ToString());
+                //A0.01 scApp.getRedisCacheManager().ListSetByIndexAsync(SCAppConstants.REDIS_LIST_KEY_VEHICLES, vh.VEHICLE_ID, vh.ToString());
             }
             catch (Exception ex)
             {
@@ -4297,8 +4310,7 @@ namespace com.mirle.ibg3k0.sc.Service
                 scApp.getNatsManager().PublishAsync
                     (string.Format(SCAppConstants.NATS_SUBJECT_VH_INFO_0, vh.VEHICLE_ID.Trim()), vh_Serialize);
 
-                scApp.getRedisCacheManager().ListSetByIndexAsync
-                    (SCAppConstants.REDIS_LIST_KEY_VEHICLES, vh.VEHICLE_ID, vh.ToString());
+                //A0.01 scApp.getRedisCacheManager().ListSetByIndexAsync(SCAppConstants.REDIS_LIST_KEY_VEHICLES, vh.VEHICLE_ID, vh.ToString());
             }
             catch (Exception ex)
             {
@@ -4812,9 +4824,11 @@ namespace com.mirle.ibg3k0.sc.Service
                 LogHelper.Log(logger: logger, LogLevel: LogLevel.Info, Class: nameof(VehicleService), Device: DEVICE_NAME_AGV,
                    Data: $"vh id:{vhID} remove success. start release reserved control...",
                    VehicleID: vhID);
+
+                scApp.VehicleBLL.clearAndPublishPositionReportInfo2Redis(vhID);  //A0.01
                 scApp.ReserveBLL.RemoveAllReservedSectionsByVehicleID(vh_vo.VEHICLE_ID);
                 scApp.ReserveBLL.RemoveVehicle(vh_vo.VEHICLE_ID);
-                scApp.VehicleBLL.clearAndPublishPositionReportInfo2Redis(vhID);//20210628 移除車輛所在位置
+                //A0.01 scApp.VehicleBLL.clearAndPublishPositionReportInfo2Redis(vhID);//20210628 移除車輛所在位置
                 if (reportmcs)
                 {
                     scApp.LineService.ProcessAlarmReport(vh_vo, AlarmBLL.VEHICLE_CAN_NOT_SERVICE, ErrorStatus.ErrReset, $"vehicle cannot service");

@@ -8,6 +8,7 @@
 //
 // Date          Author         Request No.    Tag     Description
 // ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能
 //**********************************************************************************
 using System;
 using System.Collections.Generic;
@@ -676,19 +677,22 @@ namespace com.mirle.ibg3k0.sc.Common
                             //}
                         }
                     }
-                    if (!scApp.getRedisCacheManager().KeyExists(SCAppConstants.REDIS_LIST_KEY_VEHICLES))
-                    {
-                        scApp.getRedisCacheManager().ListRightPush(SCAppConstants.REDIS_LIST_KEY_VEHICLES, vhList);
-                    }
-                    else
-                    {
-                        //目前將資料保存在Redis上面，因此不再從DB抓取資料更新至Redis進行初始化
-                        //foreach (AVEHICLE vh in vhList)
-                        //{
-                        //    scApp.getRedisCacheManager().ListSetByIndex
-                        //        (SCAppConstants.REDIS_LIST_KEY_VEHICLES, vh.VEHICLE_ID, vh.ToString());
-                        //}
-                    }
+
+                    //A0.01 Start
+                    //if (!scApp.getRedisCacheManager().KeyExists(SCAppConstants.REDIS_LIST_KEY_VEHICLES))
+                    //{
+                    //    scApp.getRedisCacheManager().ListRightPush(SCAppConstants.REDIS_LIST_KEY_VEHICLES, vhList);
+                    //}
+                    //else
+                    //{
+                    //    //目前將資料保存在Redis上面，因此不再從DB抓取資料更新至Redis進行初始化
+                    //    //foreach (AVEHICLE vh in vhList)
+                    //    //{
+                    //    //    scApp.getRedisCacheManager().ListSetByIndex
+                    //    //        (SCAppConstants.REDIS_LIST_KEY_VEHICLES, vh.VEHICLE_ID, vh.ToString());
+                    //    //}
+                    //}
+                    //A0.01 End
 
                     foreach (AUNIT unit in unitList)
                     {

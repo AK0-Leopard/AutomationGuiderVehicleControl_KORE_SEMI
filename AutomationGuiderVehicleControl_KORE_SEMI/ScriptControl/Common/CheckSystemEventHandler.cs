@@ -1,4 +1,17 @@
-﻿using com.mirle.ibg3k0.sc.App;
+﻿//*********************************************************************************
+//      CheckSystemEventHandler.cs
+//*********************************************************************************
+// File Name: CheckSystemEventHandler.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/08/11    Steven Hong    N/A            A0.01   移除不必要的Redis功能
+//**********************************************************************************
+
+using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.ProtocolFormat.OHTMessage;
 using Common.Logging;
 using StackExchange.Redis;
@@ -15,7 +28,7 @@ namespace com.mirle.ibg3k0.sc.Common
     public class CheckSystemEventHandler
     {
         const string REDIS_KEY_CHECK_SYSTEM_EXIST_FLAG = "CHECK_SYSTEM_EXIST";
-        RedisCacheManager redisCacheManager = null;
+        //A0.01 RedisCacheManager redisCacheManager = null;
         NatsManager natsManager = null;
         SCApplication app = null;
         public CheckSystemEventHandler()
@@ -25,7 +38,7 @@ namespace com.mirle.ibg3k0.sc.Common
         public void Start(SCApplication _app)
         {
             app = _app;
-            redisCacheManager = app.getRedisCacheManager();
+            //A0.01 redisCacheManager = app.getRedisCacheManager();
             //redisCacheManager.SubscriptionEvent(SCAppConstants.REDIS_EVENT_KEY, RedisEventHandler);
 
             natsManager = app.getNatsManager();
@@ -34,9 +47,11 @@ namespace com.mirle.ibg3k0.sc.Common
 
         public void CheckCheckSystemIsExist()
         {
-            bool isExist = redisCacheManager.KeyExists(REDIS_KEY_CHECK_SYSTEM_EXIST_FLAG);
-            app.getEQObjCacheManager().getLine().DetectionSystemExist =
-                isExist ? SCAppConstants.ExistStatus.Exist : SCAppConstants.ExistStatus.NoExist;
+            //A0.01 Start
+            //bool isExist = redisCacheManager.KeyExists(REDIS_KEY_CHECK_SYSTEM_EXIST_FLAG);
+            //app.getEQObjCacheManager().getLine().DetectionSystemExist =
+            //    isExist ? SCAppConstants.ExistStatus.Exist : SCAppConstants.ExistStatus.NoExist;
+            //A0.01 End
         }
 
         private void AMS_EVENT_HANDLER(object sender, StanMsgHandlerArgs e)

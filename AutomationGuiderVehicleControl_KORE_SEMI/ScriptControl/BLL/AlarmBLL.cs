@@ -8,6 +8,7 @@
 //
 // Date          Author         Request No.    Tag     Description
 // ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能 
 //**********************************************************************************
 using System;
 using System.Collections.Generic;
@@ -230,38 +231,39 @@ namespace com.mirle.ibg3k0.sc.BLL
             return (tran_cmd_1, tran_cmd_2, tran_cmd_3, tran_cmd_4);
         }
 
+        //A0.01 Start
+        //public void setAlarmReport2Redis(ALARM alarm)
+        //{
+        //    if (alarm == null) return;
+        //    string hash_field = $"{alarm.EQPT_ID}_{alarm.ALAM_CODE}";
+        //    scApp.getRedisCacheManager().AddTransactionCondition(StackExchange.Redis.Condition.HashNotExists(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field));
+        //    scApp.getRedisCacheManager().HashSetAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field, JsonConvert.SerializeObject(alarm));
+        //}
 
-        public void setAlarmReport2Redis(ALARM alarm)
-        {
-            if (alarm == null) return;
-            string hash_field = $"{alarm.EQPT_ID}_{alarm.ALAM_CODE}";
-            scApp.getRedisCacheManager().AddTransactionCondition(StackExchange.Redis.Condition.HashNotExists(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field));
-            scApp.getRedisCacheManager().HashSetAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field, JsonConvert.SerializeObject(alarm));
-        }
-
-        public List<ALARM> getCurrentAlarmsFromRedis()
-        {
-            List<ALARM> alarms = new List<ALARM>();
-            var redis_values_alarms = scApp.getRedisCacheManager().HashValuesProductOnlyAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM).Result;
-            foreach (string redis_value_alarm in redis_values_alarms)
-            {
-                ALARM alarm_obj = (ALARM)JsonConvert.DeserializeObject(redis_value_alarm, typeof(ALARM));
-                alarms.Add(alarm_obj);
-            }
-            return alarms;
-        }
-        public List<ALARM> getCurrentChargerAlarmsFromRedis()
-        {
-            List<ALARM> alarms = new List<ALARM>();
-            var redis_values_alarms = scApp.getRedisCacheManager().HashValuesProductOnlyAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM).Result;
-            foreach (string redis_value_alarm in redis_values_alarms)
-            {
-                ALARM alarm_obj = (ALARM)JsonConvert.DeserializeObject(redis_value_alarm, typeof(ALARM));
-                if (alarm_obj.EQPT_ID.Contains("Charger"))
-                    alarms.Add(alarm_obj);
-            }
-            return alarms;
-        }
+        //public List<ALARM> getCurrentAlarmsFromRedis()
+        //{
+        //    List<ALARM> alarms = new List<ALARM>();
+        //    var redis_values_alarms = scApp.getRedisCacheManager().HashValuesProductOnlyAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM).Result;
+        //    foreach (string redis_value_alarm in redis_values_alarms)
+        //    {
+        //        ALARM alarm_obj = (ALARM)JsonConvert.DeserializeObject(redis_value_alarm, typeof(ALARM));
+        //        alarms.Add(alarm_obj);
+        //    }
+        //    return alarms;
+        //}
+        //public List<ALARM> getCurrentChargerAlarmsFromRedis()
+        //{
+        //    List<ALARM> alarms = new List<ALARM>();
+        //    var redis_values_alarms = scApp.getRedisCacheManager().HashValuesProductOnlyAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM).Result;
+        //    foreach (string redis_value_alarm in redis_values_alarms)
+        //    {
+        //        ALARM alarm_obj = (ALARM)JsonConvert.DeserializeObject(redis_value_alarm, typeof(ALARM));
+        //        if (alarm_obj.EQPT_ID.Contains("Charger"))
+        //            alarms.Add(alarm_obj);
+        //    }
+        //    return alarms;
+        //}
+        //A0.01 End
 
         public List<ALARM> GetAlarms(DateTime startTime, DateTime endTime)
         {
@@ -283,6 +285,24 @@ namespace com.mirle.ibg3k0.sc.BLL
             }
             return alarms;
         }
+
+        //A0.01 Start
+        public List<ALARM> getCurrentChargerAlarms()
+        {
+            List<ALARM> alarms = new List<ALARM>();
+
+            using (DBConnection_EF con = DBConnection_EF.GetUContext())
+            {
+                alarms = alarmDao.loadSetAlarm(con);
+                if (alarms != null && alarms.Count > 0)
+                {
+                    alarms = alarms.Where(map => map.EQPT_ID.Contains("Charger")).ToList();
+                }
+            }
+            return alarms;
+        }
+        //A0.01 End
+
         public List<ALARM> getCurrentErrorAlarms()
         {
             List<ALARM> alarms = new List<ALARM>();
@@ -314,14 +334,15 @@ namespace com.mirle.ibg3k0.sc.BLL
             }
         }
 
-        public void resetAlarmReport2Redis(ALARM alarm)
-        {
-            if (alarm == null) return;
-            string hash_field = $"{alarm.EQPT_ID.Trim()}_{alarm.ALAM_CODE.Trim()}";
-            //scApp.getRedisCacheManager().AddTransactionCondition(StackExchange.Redis.Condition.HashExists(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field));
-            scApp.getRedisCacheManager().HashDeleteAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field);
-        }
-
+        //A0.01 Start
+        //public void resetAlarmReport2Redis(ALARM alarm)
+        //{
+        //    if (alarm == null) return;
+        //    string hash_field = $"{alarm.EQPT_ID.Trim()}_{alarm.ALAM_CODE.Trim()}";
+        //    //scApp.getRedisCacheManager().AddTransactionCondition(StackExchange.Redis.Condition.HashExists(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field));
+        //    scApp.getRedisCacheManager().HashDeleteAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM, hash_field);
+        //}
+        //A0.01 End
 
         public List<ALARM> resetAllAlarmReport(string eq_id)
         {
@@ -355,13 +376,15 @@ namespace com.mirle.ibg3k0.sc.BLL
         }
 
 
+        //A0.01 Start
+        //public void resetAllAlarmReport2Redis(string vh_id)
+        //{
+        //    var current_all_alarm = scApp.getRedisCacheManager().HashKeys(SCAppConstants.REDIS_KEY_CURRENT_ALARM);
+        //    var vh_all_alarm = current_all_alarm.Where(redisKey => ((string)redisKey).Contains(vh_id)).ToArray();
+        //    scApp.getRedisCacheManager().HashDeleteAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM, vh_all_alarm);
+        //}
+        //A0.01 End
 
-        public void resetAllAlarmReport2Redis(string vh_id)
-        {
-            var current_all_alarm = scApp.getRedisCacheManager().HashKeys(SCAppConstants.REDIS_KEY_CURRENT_ALARM);
-            var vh_all_alarm = current_all_alarm.Where(redisKey => ((string)redisKey).Contains(vh_id)).ToArray();
-            scApp.getRedisCacheManager().HashDeleteAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM, vh_all_alarm);
-        }
         private bool IsAlarmExist(string eq_id, string code)
         {
             bool isExist = false;
@@ -391,16 +414,17 @@ namespace com.mirle.ibg3k0.sc.BLL
             return alarmMap;
         }
 
-        public bool hasAlarmExist()
-        {
-            var redis_values_alarms = scApp.getRedisCacheManager().HashValuesProductOnlyAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM).Result;
-            if (redis_values_alarms.Count() > 0)
-            {
-                return true;
-            }
-            return false;
-        }
-
+        //A0.01 Start
+        //public bool hasAlarmExist()
+        //{
+        //    var redis_values_alarms = scApp.getRedisCacheManager().HashValuesProductOnlyAsync(SCAppConstants.REDIS_KEY_CURRENT_ALARM).Result;
+        //    if (redis_values_alarms.Count() > 0)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
+        //A0.01 End
 
 
         public bool enableAlarmReport(string alarm_id, Boolean isEnable)

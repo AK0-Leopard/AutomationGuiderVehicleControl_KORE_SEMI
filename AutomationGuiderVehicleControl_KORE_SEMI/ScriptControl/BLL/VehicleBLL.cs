@@ -1,4 +1,17 @@
-﻿using com.mirle.ibg3k0.sc.App;
+﻿//*********************************************************************************
+//      VehicleBLL.cs
+//*********************************************************************************
+// File Name: VehicleBLL.cs
+// Description:
+//
+//(c) Copyright 2021, MIRLE Automation Corporation
+//
+// Date          Author         Request No.    Tag     Description
+// ------------- -------------  -------------  ------  -----------------------------
+// 2023/09/01    Steven Hong    N/A            A0.01   移除不必要的Redis功能                            
+//**********************************************************************************
+
+using com.mirle.ibg3k0.sc.App;
 using com.mirle.ibg3k0.sc.Common;
 using com.mirle.ibg3k0.sc.Data;
 using com.mirle.ibg3k0.sc.Data.DAO;
@@ -252,7 +265,7 @@ namespace com.mirle.ibg3k0.sc.BLL
         }
         public void setAndPublishPositionReportInfo2Redis(string vh_id, ID_134_TRANS_EVENT_REP report_obj)
         {
-            redis.setPositionReportInfo2Redis(vh_id, report_obj);
+            //A0.01 redis.setPositionReportInfo2Redis(vh_id, report_obj);
             doUpdateVheiclePositionAndCmdSchedule(vh_id, report_obj);
         }
         private void doUpdateVheiclePositionAndCmdSchedule
