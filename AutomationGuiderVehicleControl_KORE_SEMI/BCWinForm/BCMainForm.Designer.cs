@@ -109,6 +109,7 @@ namespace com.mirle.ibg3k0.bc.winform
             this.engineeringModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tipMessageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.prioritySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.CMS_OnLineMode.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -436,7 +437,8 @@ namespace com.mirle.ibg3k0.bc.winform
             // 
             this.mataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.roadControlToolStripMenuItem,
-            this.reserveSectionInfoToolStripMenuItem});
+            this.reserveSectionInfoToolStripMenuItem,
+            this.prioritySettingToolStripMenuItem});
             this.mataToolStripMenuItem.Name = "mataToolStripMenuItem";
             resources.ApplyResources(this.mataToolStripMenuItem, "mataToolStripMenuItem");
             this.mataToolStripMenuItem.Click += new System.EventHandler(this.mataToolStripMenuItem_Click);
@@ -510,6 +512,12 @@ namespace com.mirle.ibg3k0.bc.winform
             // 
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // prioritySettingToolStripMenuItem
+            // 
+            this.prioritySettingToolStripMenuItem.Name = "prioritySettingToolStripMenuItem";
+            resources.ApplyResources(this.prioritySettingToolStripMenuItem, "prioritySettingToolStripMenuItem");
+            this.prioritySettingToolStripMenuItem.Click += new System.EventHandler(this.prioritySettingToolStripMenuItem_Click);
             // 
             // BCMainForm
             // 
@@ -671,6 +679,7 @@ namespace com.mirle.ibg3k0.bc.winform
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem carrierInstalledRemoveToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transferCommandToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem prioritySettingToolStripMenuItem;
     }
 
     /// <summary>

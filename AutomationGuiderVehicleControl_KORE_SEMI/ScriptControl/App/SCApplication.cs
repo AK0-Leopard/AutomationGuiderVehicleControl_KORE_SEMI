@@ -8,6 +8,7 @@
 //
 // Date          Author         Request No.    Tag     Description
 // ------------- -------------  -------------  ------  -----------------------------
+// 2023/08/11    Boan Chen    None           A0.3    優先度提高功能修改為從DB讀取，UI修改
 //**********************************************************************************
 
 using com.mirle.ibg3k0.bcf.App;
@@ -565,7 +566,96 @@ namespace com.mirle.ibg3k0.sc.App
             SystemParameter.setCstMaxWaitTime(getInt("CSTMaxWaitTime", 0));
             SystemParameter.setLongestFullyChargedIntervalTime(getInt("LongestFullyChargedIntervalTime", 15));
             //updataSectionDistance();
+
+            initialPriority();  //A0.3
+
         }
+
+        //A0.3 Start
+        private void initialPriority()
+        {
+            try
+            {
+                string msg;
+
+                AECDATAMAP addInterval = lineBLL.getECData(SCAppConstants.ECID_PRIORITY_ADD_INTERVAL);
+                if (addInterval == null)
+                {
+                    SystemParameter.PriorityAddInterval = 5;
+
+                    addInterval = new AECDATAMAP();
+                    addInterval.ECID = SCAppConstants.ECID_PRIORITY_ADD_INTERVAL;
+                    addInterval.EQPT_REAL_ID = BC_ID;
+                    addInterval.ECNAME = "PriorityAddInterval";
+                    addInterval.ECV = "5";
+                    addInterval.ECMAX = "10";
+                    addInterval.ECMIN = "1";
+
+                    List<AECDATAMAP> lst = new List<AECDATAMAP>();
+                    lst.Add(addInterval);
+                    lineBLL.insertNewECData(lst);
+                }
+                else
+                {
+                    int val;
+                    if (int.TryParse(addInterval.ECV, out val))
+                    {
+                        SystemParameter.PriorityAddInterval = val;
+                    }
+                    else
+                    {
+                        SystemParameter.PriorityAddInterval = 5;
+
+                        addInterval.ECV = "5";
+                        List<AECDATAMAP> lst = new List<AECDATAMAP>();
+                        lst.Add(addInterval);
+
+                        lineBLL.updateECData(lst, out msg);
+                    }
+                }
+
+                AECDATAMAP addCnt = lineBLL.getECData(SCAppConstants.ECID_PRIORITY_ADD_CNT);
+                if (addCnt == null)
+                {
+                    SystemParameter.PriorityAddCnt = 1;
+
+                    addCnt = new AECDATAMAP();
+                    addCnt.ECID = SCAppConstants.ECID_PRIORITY_ADD_CNT;
+                    addCnt.EQPT_REAL_ID = BC_ID;
+                    addCnt.ECNAME = "PriorityAddCnt";
+                    addCnt.ECV = "1";
+                    addCnt.ECMAX = "10";
+                    addCnt.ECMIN = "1";
+
+                    List<AECDATAMAP> lst = new List<AECDATAMAP>();
+                    lst.Add(addCnt);
+                    lineBLL.insertNewECData(lst);
+                }
+                else
+                {
+                    int val;
+                    if (int.TryParse(addCnt.ECV, out val))
+                    {
+                        SystemParameter.PriorityAddCnt = val;
+                    }
+                    else
+                    {
+                        SystemParameter.PriorityAddCnt = 1;
+
+                        addCnt.ECV = "1";
+                        List<AECDATAMAP> lst = new List<AECDATAMAP>();
+                        lst.Add(addCnt);
+
+                        lineBLL.updateECData(lst, out msg);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception:");
+            }
+        }
+        //A0.3 End
 
         private void updataSectionDistance()
         {
@@ -1679,6 +1769,8 @@ namespace com.mirle.ibg3k0.sc.App
         //public static int AllowVhIdleTime_ms = 300000;
         public static int TransferCommandTimePriorityIncrement = 1;
 
+        public static int PriorityAddCnt = 1;       //A0.3
+        public static int PriorityAddInterval = 5;  //A0.3
 
         public static void setSECSConversactionTimeout(int timeout)
         {

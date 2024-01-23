@@ -445,16 +445,22 @@
     <value>Query</value>
   </data>
   <data name="roadControlToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 26</value>
+    <value>202, 26</value>
   </data>
   <data name="roadControlToolStripMenuItem.Text" xml:space="preserve">
     <value>Road Control</value>
   </data>
   <data name="reserveSectionInfoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>192, 26</value>
+    <value>202, 26</value>
   </data>
   <data name="reserveSectionInfoToolStripMenuItem.Text" xml:space="preserve">
     <value>Reserve Info</value>
+  </data>
+  <data name="prioritySettingToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 26</value>
+  </data>
+  <data name="prioritySettingToolStripMenuItem.Text" xml:space="preserve">
+    <value>Priority Setting</value>
   </data>
   <data name="mataToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>128, 26</value>
@@ -1459,6 +1465,12 @@
   </data>
   <data name="&gt;&gt;timer1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;prioritySettingToolStripMenuItem.Name" xml:space="preserve">
+    <value>prioritySettingToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;prioritySettingToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>BCMainForm</value>

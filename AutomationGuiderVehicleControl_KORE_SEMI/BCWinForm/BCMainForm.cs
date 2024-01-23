@@ -1151,5 +1151,12 @@ namespace com.mirle.ibg3k0.bc.winform
         {
             this.Close();
         }
+
+        //A0.01 Start
+        private void prioritySettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openForm(typeof(PrioritySetting).Name, true, false);
+        }
+        //A0.01 End
     }
 }

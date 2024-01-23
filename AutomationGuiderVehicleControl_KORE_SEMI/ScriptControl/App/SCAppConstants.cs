@@ -8,6 +8,7 @@
 //
 // Date                Author         Request No.    Tag     Description
 // ------------- -------------  -------------  ------  -----------------------------
+// 2022/08/22    Boan Chen    N/A            A0.01   新增Priority ECID
 //**********************************************************************************
 using System;
 using System.Collections.Generic;
@@ -77,6 +78,18 @@ namespace com.mirle.ibg3k0.sc.App
         /// </summary>
         public static readonly string ECID_CONVERSATION_TIMEOUT = "0011";
 
+        //A0.01 Start
+        /// <summary>
+        /// The ecid_priority_add_interval
+        /// </summary>
+        public static readonly string ECID_PRIORITY_ADD_INTERVAL = "0012";
+
+        /// <summary>
+        /// The ecid_priority_add_cnt
+        /// </summary>
+        public static readonly string ECID_PRIORITY_ADD_CNT = "0013";
+        //A0.01 End
+
         /// <summary>
         /// The syste m_ defaul t_ ecid
         /// </summary>
@@ -92,6 +105,8 @@ namespace com.mirle.ibg3k0.sc.App
             ECID_T7,
             ECID_T8,
             ECID_CONVERSATION_TIMEOUT,
+            ECID_PRIORITY_ADD_INTERVAL,  //A0.01
+            ECID_PRIORITY_ADD_CNT,       //A0.01
         };
         #endregion ECID
 

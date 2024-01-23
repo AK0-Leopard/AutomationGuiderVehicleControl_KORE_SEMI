@@ -8,6 +8,7 @@
 //
 // Date          Author         Request No.    Tag     Description
 // ------------- -------------  -------------  ------  -----------------------------
+// 2022/08/22    Boan Chen    N/A            A0.01   新增Priority更新功能
 //**********************************************************************************
 using System;
 using System.Collections.Generic;
@@ -1383,7 +1384,15 @@ namespace com.mirle.ibg3k0.sc.BLL
                 {
                     foreach (AECDATAMAP item in ecDataMapList)
                     {
-                        ecDataMapDao.updateECData(conn, item);
+                        //A0.01 Start
+                        AECDATAMAP tmp = ecDataMapDao.getByECID(conn, false, item.ECID);
+                        if (tmp != null)
+                        {
+                            tmp.ECV = item.ECV;
+                            ecDataMapDao.updateECData(conn, tmp);
+                        }
+                        //ecDataMapDao.updateECData(conn, item);
+                        //A0.01 End
                         scApp.BCSystemBLL.updateSystemParameter(item.ECID, item.ECV, true);
                     }
                 }
@@ -1569,6 +1578,51 @@ namespace com.mirle.ibg3k0.sc.BLL
 
         #endregion ECID
 
+        #region Priority
+        //A0.01 Start
+        public bool updatePriority(AECDATAMAP ecdata, out string msg)
+        {
+            bool rtn_code = true;
+            msg = string.Empty;
+
+            try
+            {
+                List<AECDATAMAP> lst = new List<AECDATAMAP>();
+                lst.Add(ecdata);
+
+                if (updateECData(lst, out msg))
+                {
+                    int val;
+                    if (SCUtility.isMatche(ecdata.ECID, SCAppConstants.ECID_PRIORITY_ADD_INTERVAL))
+                    {
+                        if (int.TryParse(ecdata.ECV, out val))
+                        {
+                            SystemParameter.PriorityAddInterval = val;
+                        }
+                    }
+                    else if (SCUtility.isMatche(ecdata.ECID, SCAppConstants.ECID_PRIORITY_ADD_CNT))
+                    {
+                        if (int.TryParse(ecdata.ECV, out val))
+                        {
+                            SystemParameter.PriorityAddCnt = val;
+                        }
+                    }
+                }
+                else
+                {
+                    rtn_code = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, "Exception:");
+                return false;
+            }
+
+            return rtn_code;
+        }
+        //A0.01 End
+        #endregion
 
         #region Communcation Info
         public List<APSetting> loadAPSettiong()
